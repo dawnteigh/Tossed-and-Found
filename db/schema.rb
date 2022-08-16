@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(version: 2022_08_14_195504) do
     t.string "model"
     t.string "color"
     t.integer "weight"
+    t.string "disc_type"
+    t.string "img", default: "https://www.discstore.com/media/catalog/product/cache/b56d745e38c1403eb862ceecfcf7dbaf/d/i/discgolf_mystery.jpg"
     t.string "finder_key"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false

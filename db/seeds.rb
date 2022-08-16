@@ -5,3 +5,59 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+puts "Clearing database..."
+
+User.destroy_all
+Disc.destroy_all
+Course.destroy_all
+Score.destroy_all
+
+puts "Seeding users..."
+
+tim = User.create(username: 'Tim', password_digest: 'tim123')
+rose = User.create(username: 'Rose', password_digest: 'rose123')
+kat = User.create(username: 'Kat', password_digest: 'kat123')
+
+puts "Seeding discs..."
+
+tim.discs.create([
+  { make: "Innova", model: "GStar Boss", color: "Pink", weight: 173, disc_type: "Distance Driver", img: "https://m.media-amazon.com/images/I/61D2XI+WGyL._AC_SL1000_.jpg" , finder_key: SecureRandom.hex(3) },
+  { make: "Discraft", model: "Buzzz", color: "White", weight: 177, disc_type: "Mid-Range", img: "https://m.media-amazon.com/images/I/61iREHqN-AL._AC_SL1000_.jpg", finder_key: SecureRandom.hex(3) },
+  { make: "Dynamic Discs", model: "Prime Burst Judge", color: "Blue", weight: 170, disc_type: "Putter", img: "https://m.media-amazon.com/images/I/71IjAsx2+uL._AC_SL1500_.jpg", finder_key: SecureRandom.hex(3) }
+])
+
+rose.discs.create([
+  { make: "Innova" , model: "DX Katana", color: "Purple", weight: 169, disc_type: "Distance Driver", img: "https://m.media-amazon.com/images/I/717bF75LGPL._AC_SL1200_.jpg", finder_key: SecureRandom.hex(3) },
+  { make: "Divergent Discs", model: "Leviathan", color: "Pink", weight: 168, disc_type: "Mid-Range", img: "https://m.media-amazon.com/images/I/71IQ8W4CnVL._AC_SL1500_.jpg", finder_key: SecureRandom.hex(3) },
+  { make: "Westside Discs", model: "BT Hard Maiden", color: "Gray", weight: 177, disc_type: "Putter", img: "https://m.media-amazon.com/images/I/71lLM8uDk8L._AC_SL1500_.jpg", finder_key: SecureRandom.hex(3) }
+])
+
+kat.discs.create([
+  { make: "Discmania", model: "Majesty", color: "Pink", weight: 165, disc_type: "Distance Driver", img: "https://m.media-amazon.com/images/I/61ZDBbHkiCL._AC_SL1024_.jpg", finder_key: SecureRandom.hex(3) },
+  { make: "Yikun", model: "Phoenix Star Yao", color: "Purple", weight: 176, disc_type: "Mid-Range", img: "https://m.media-amazon.com/images/I/7126DY7jQcL._AC_SL1500_.jpg", finder_key: SecureRandom.hex(3) },
+  { make: "Viking Discs", model: "Storm Knife", color: "Green", weight: 175, disc_type: "Putter", img: "https://m.media-amazon.com/images/I/71UcdiZRRoL._AC_SL1500_.jpg", finder_key: SecureRandom.hex(3) }
+])
+
+puts "Seeding courses..."
+
+nlc = Course.create(name: "North Lakes Creekside", location: "Denton, TX")
+nll = Course.create(name: "North Lakes Lakeside", location: "Denton, TX")
+
+puts "Seeding scores..."
+
+tim.scores.create([
+  { strokes: 60, par: "+6", course_id: nlc.id },
+  { strokes: 62, par: "+3", course_id: nll.id }
+])
+
+rose.scores.create([
+  { strokes: 56, par: "+2", course_id: nlc.id },
+  { strokes: 66, par: "+7", course_id: nll.id }
+])
+
+kat.scores.create([
+  { strokes: 53, par: "-1", course_id: nlc.id },
+  { strokes: 59, par: "+0", course_id: nll.id }
+])
+
+puts "Done!"
