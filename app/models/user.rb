@@ -3,4 +3,6 @@ class User < ApplicationRecord
   has_many :discs, dependent: :destroy
   has_many :scores
   has_many :courses, through: :scores
+
+  validates :username, presence: true, uniqueness: true, format: { with: /\A[a-zA-Z0-9]+\Z/ }
 end
