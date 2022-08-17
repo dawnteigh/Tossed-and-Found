@@ -8,4 +8,16 @@ class UsersController < ApplicationController
     end
   end
 
+  def create
+  end
+
+  def update
+  end
+
+  private
+
+  def user_params
+    params.permit(:username, :password_digest)
+  end
+
 end

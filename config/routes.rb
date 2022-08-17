@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
   resources :discs, only: [:create, :show, :index, :update, :destroy]
   resources :users, only: [:create, :update]
-  resources :scores, only: [:create, :show, :index, :update, :destroy]
+  resources :scores, only: [:create, :index, :update, :destroy]
   resources :courses, only: [:create, :show, :index, :update, :destroy]
 
   get "/me", to: "users#show"

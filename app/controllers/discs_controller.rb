@@ -1,9 +1,21 @@
 class DiscsController < ApplicationController
 
+  def index
+  end
+
+  def show
+  end
+
   def create
     disc = current_user.discs.create(disc_params)
-    disc.update(finder_key: SecureRandom.hex(3))
+    disc.update(finder_key: Random.hex(3))
     render json: disc, status: :created
+  end
+
+  def update
+  end
+
+  def destroy
   end
 
   private
