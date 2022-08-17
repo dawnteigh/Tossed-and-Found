@@ -10,7 +10,7 @@ class ScoresController < ApplicationController
 
   def create
     if current_user
-      score = current_user.scores.create(score_params)
+      score = current_user.scores.create!(score_params)
       render json: score, status: :created
     else
       unauthorized
@@ -21,7 +21,7 @@ class ScoresController < ApplicationController
     if current_user
       score = current_user.scores.find_by(id: params[:id])
       if score
-        score.update(score_params)
+        score.update!(score_params)
         render json: score, status: :ok
       else
         not_found "score"

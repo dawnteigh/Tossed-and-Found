@@ -23,7 +23,7 @@ class CoursesController < ApplicationController
   
   def create
     if current_user
-      course = Course.create(course_params)
+      course = Course.create!(course_params)
       render json: course, status: :created
     else
       unauthorized
@@ -34,7 +34,7 @@ class CoursesController < ApplicationController
     if current_user
       course = Course.find_by(id: params[:id])
       if course
-        course.update(course_params)
+        course.update!(course_params)
         render json: course, status: :ok
       else
         not_found "course"

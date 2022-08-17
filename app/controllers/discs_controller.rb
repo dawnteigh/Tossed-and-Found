@@ -5,6 +5,7 @@ class DiscsController < ApplicationController
       render json: current_user.discs, status: :ok
     else
       unauthorized
+    end
   end
 
   def show
@@ -22,7 +23,7 @@ class DiscsController < ApplicationController
 
   def create
     if current_user
-      disc = current_user.discs.create(disc_params)
+      disc = current_user.discs.create!(disc_params)
       disc.update(finder_key: Random.hex(3))
       render json: disc, status: :created
     else
@@ -34,7 +35,7 @@ class DiscsController < ApplicationController
     if current_user
       disc = current_user.discs.find_by(id: params[:id])
       if disc
-        disc.update(disc_params)
+        disc.update!(disc_params)
         render json: disc, status: :ok
       else
         not_found "disc"

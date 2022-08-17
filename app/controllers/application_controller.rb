@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::API
   include ActionController::Cookies
+  rescue_from ActiveRecord::RecordInvalid, with: :invalid_response
 
   private
   
@@ -13,6 +14,10 @@ class ApplicationController < ActionController::API
 
   def not_found(obj)
     render json: { error: "There is no such #{obj} in the database!" }, status: :not_found
+  end
+
+  def invalid_response(invalid)
+    render json: { errors: invalid.record.errors.full_messages }, status: :unprocessable_entity
   end
 
 end
