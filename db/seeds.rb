@@ -21,21 +21,21 @@ kat = User.create(username: 'Kat', password_digest: 'kat123')
 puts "Seeding discs..."
 
 tim.discs.create([
-  { make: "Innova", model: "GStar Boss", color: "Pink", weight: 173, disc_type: "Distance Driver", img: "https://m.media-amazon.com/images/I/61D2XI+WGyL._AC_SL1000_.jpg" , finder_key: SecureRandom.hex(3) },
-  { make: "Discraft", model: "Buzzz", color: "White", weight: 177, disc_type: "Mid-Range", img: "https://m.media-amazon.com/images/I/61iREHqN-AL._AC_SL1000_.jpg", finder_key: SecureRandom.hex(3) },
-  { make: "Dynamic Discs", model: "Prime Burst Judge", color: "Blue", weight: 170, disc_type: "Putter", img: "https://m.media-amazon.com/images/I/71IjAsx2+uL._AC_SL1500_.jpg", finder_key: SecureRandom.hex(3) }
+  { make: "Innova", model: "GStar Boss", color: "Pink", weight: 173, disc_type: "Distance Driver", img: "https://m.media-amazon.com/images/I/61D2XI+WGyL._AC_SL1000_.jpg" , finder_key: Random.hex(3) },
+  { make: "Discraft", model: "Buzzz", color: "White", weight: 177, disc_type: "Mid-Range", img: "https://m.media-amazon.com/images/I/61iREHqN-AL._AC_SL1000_.jpg", finder_key: Random.hex(3) },
+  { make: "Dynamic Discs", model: "Prime Burst Judge", color: "Blue", weight: 170, disc_type: "Putter", img: "https://m.media-amazon.com/images/I/71IjAsx2+uL._AC_SL1500_.jpg", finder_key: Random.hex(3) }
 ])
 
 rose.discs.create([
-  { make: "Innova" , model: "DX Katana", color: "Purple", weight: 169, disc_type: "Distance Driver", img: "https://m.media-amazon.com/images/I/717bF75LGPL._AC_SL1200_.jpg", finder_key: SecureRandom.hex(3) },
-  { make: "Divergent Discs", model: "Leviathan", color: "Pink", weight: 168, disc_type: "Mid-Range", img: "https://m.media-amazon.com/images/I/71IQ8W4CnVL._AC_SL1500_.jpg", finder_key: SecureRandom.hex(3) },
-  { make: "Westside Discs", model: "BT Hard Maiden", color: "Gray", weight: 177, disc_type: "Putter", img: "https://m.media-amazon.com/images/I/71lLM8uDk8L._AC_SL1500_.jpg", finder_key: SecureRandom.hex(3) }
+  { make: "Innova" , model: "DX Katana", color: "Purple", weight: 169, disc_type: "Distance Driver", img: "https://m.media-amazon.com/images/I/717bF75LGPL._AC_SL1200_.jpg", finder_key: Random.hex(3) },
+  { make: "Divergent Discs", model: "Leviathan", color: "Pink", weight: 168, disc_type: "Mid-Range", img: "https://m.media-amazon.com/images/I/71IQ8W4CnVL._AC_SL1500_.jpg", finder_key: Random.hex(3) },
+  { make: "Westside Discs", model: "BT Hard Maiden", color: "Gray", weight: 177, disc_type: "Putter", img: "https://m.media-amazon.com/images/I/71lLM8uDk8L._AC_SL1500_.jpg", finder_key: Random.hex(3) }
 ])
 
 kat.discs.create([
-  { make: "Discmania", model: "Majesty", color: "Pink", weight: 165, disc_type: "Distance Driver", img: "https://m.media-amazon.com/images/I/61ZDBbHkiCL._AC_SL1024_.jpg", finder_key: SecureRandom.hex(3) },
-  { make: "Yikun", model: "Phoenix Star Yao", color: "Purple", weight: 176, disc_type: "Mid-Range", img: "https://m.media-amazon.com/images/I/7126DY7jQcL._AC_SL1500_.jpg", finder_key: SecureRandom.hex(3) },
-  { make: "Viking Discs", model: "Storm Knife", color: "Green", weight: 175, disc_type: "Putter", img: "https://m.media-amazon.com/images/I/71UcdiZRRoL._AC_SL1500_.jpg", finder_key: SecureRandom.hex(3) }
+  { make: "Discmania", model: "Majesty", color: "Pink", weight: 165, disc_type: "Distance Driver", img: "https://m.media-amazon.com/images/I/61ZDBbHkiCL._AC_SL1024_.jpg", finder_key: Random.hex(3) },
+  { make: "Yikun", model: "Phoenix Star Yao", color: "Purple", weight: 176, disc_type: "Mid-Range", img: "https://m.media-amazon.com/images/I/7126DY7jQcL._AC_SL1500_.jpg", finder_key: Random.hex(3) },
+  { make: "Viking Discs", model: "Storm Knife", color: "Green", weight: 175, disc_type: "Putter", img: "https://m.media-amazon.com/images/I/71UcdiZRRoL._AC_SL1500_.jpg", finder_key: Random.hex(3) }
 ])
 
 puts "Seeding courses..."

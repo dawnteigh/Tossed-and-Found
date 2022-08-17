@@ -7,10 +7,6 @@ class DiscsController < ApplicationController
   end
 
   private
-
-  def current_user
-    User.find_by(id: session[:user_id])
-  end
   
   def disc_params
     params.permit(:make, :model, :color, :weight, :disc_type, :img)
