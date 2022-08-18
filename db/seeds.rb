@@ -60,4 +60,12 @@ kat.scores.create([
   { strokes: 59, par: "+0", course_id: nll.id }
 ])
 
+puts "Seeding messages..."
+
+tim.messages.create(subject: "Purple Star Shryke", body: "Hey Tim, I found your Star Shryke in the lake. When can you meet up to get it?", sender: "kat")
+
+rose.messages.create(subject: "Purple Underworld", body: "You missing a purple Underworld? Found it at North Lakes.", sender: "tim")
+
+kat.messages.create(subject: "re: Purple Star Shryke", body: "Oh, cool! I'm free next Monday afternoon. Jupiter House?", sender: "tim")
+
 puts "Done!"
