@@ -1,12 +1,15 @@
-import React from 'react'
-import NavBar from './NavBar';
-import Discs from './Discs';
-import Scores from './Scores';
-import Courses from './Courses';
+import React, { useContext } from 'react'
+import { UserContext } from './context/user';
 import Messages from './Messages';
-import DiscReturn from './DiscReturn';
 
 const Home = () => {
+  const { loggedIn } = useContext(UserContext);
+
+  if (!loggedIn) {
+    return (
+      <h3>Log in, bro</h3>
+    )
+  }
   return (
     <div>Home</div>
   )
