@@ -19,11 +19,13 @@ function UserProvider({ children }) {
   const login = (user) => {
     setUser(user)
     setLoggedIn(true)
+    // navigate to home page
   }
 
   const logout = () => {
     setUser({})
     setLoggedIn(false)
+    // navigate to login page
   }
 
   return (
