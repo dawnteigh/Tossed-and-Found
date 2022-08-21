@@ -3,7 +3,7 @@ import { UserContext } from './context/user';
 import Messages from './Messages';
 
 const Home = () => {
-  const { loggedIn } = useContext(UserContext);
+  const { user, loggedIn } = useContext(UserContext);
 
   if (!loggedIn) {
     return (
@@ -11,7 +11,7 @@ const Home = () => {
     )
   }
   return (
-    <div>Home</div>
+    <div>Hey, {user.username}!</div>
   )
 }
 

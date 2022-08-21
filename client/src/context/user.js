@@ -23,8 +23,14 @@ function UserProvider({ children }) {
   }
 
   const logout = () => {
-    setUser({})
-    setLoggedIn(false)
+    fetch('/logout', {
+      method: "DELETE"
+    })
+    .then(() => {
+      setUser({})
+      setLoggedIn(false)
+      }
+    )
     // navigate to login page
   }
 

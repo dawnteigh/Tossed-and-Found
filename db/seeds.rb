@@ -14,9 +14,9 @@ Score.destroy_all
 
 puts "Seeding users..."
 
-tim = User.create(username: 'Tim', password_digest: 'tim123')
-rose = User.create(username: 'Rose', password_digest: 'rose123')
-kat = User.create(username: 'Kat', password_digest: 'kat123')
+tim = User.create(username: 'Tim', password: 'tim123')
+rose = User.create(username: 'Rose', password: 'rose123')
+kat = User.create(username: 'Kat', password: 'kat123')
 
 puts "Seeding discs..."
 

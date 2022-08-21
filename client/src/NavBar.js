@@ -4,7 +4,12 @@ import { NavLink } from "react-router-dom";
 
 
 const NavBar = () => {
- const { loggedIn } = useContext(UserContext);
+  const { loggedIn, logout } = useContext(UserContext);
+
+  // const logoutUser = () => {
+    
+  //   .then(() => logout())
+  // }
 
  if (!loggedIn) {
   return (
@@ -56,6 +61,7 @@ const NavBar = () => {
       >
         Found a Disc?
       </NavLink>
+      <button onClick={logout}>Logout</button>
     </div>
   )
 }
