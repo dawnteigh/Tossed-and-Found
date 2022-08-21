@@ -11,7 +11,11 @@ const Home = () => {
     )
   }
   return (
-    <div>Hey, {user.username}!</div>
+    <div>
+      Hey, {user.username}!
+    <br/>
+    <Messages />
+    </div>
   )
 }
 

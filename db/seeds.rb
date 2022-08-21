@@ -62,11 +62,11 @@ kat.scores.create([
 
 puts "Seeding messages..."
 
-kat.messages.create(subject: "Purple Star Shryke", body: "Hey Tim, I found your Star Shryke in the lake. When can you meet up to get it?", to: "tim")
+kat.messages.create(subject: "Purple Star Shryke", body: "Hey Tim, I found your Star Shryke in the lake. When can you meet up to get it?", to: "Tim")
 
-tim.messages.create(subject: "Purple Underworld", body: "You missing a purple Underworld? Found it at North Lakes.", to: "rose")
+tim.messages.create(subject: "Purple Underworld", body: "You missing a purple Underworld? Found it at North Lakes.", to: "Rose")
 
-tim.messages.create(subject: "re: Purple Star Shryke", body: "Oh, cool! I'm free next Monday afternoon. Jupiter House?", to: "kat")
+tim.messages.create(subject: "re: Purple Star Shryke", body: "Oh, cool! I'm free next Monday afternoon. Jupiter House?", to: "Kat")
 
 rose.messages.create(subject: "re: Purple Underworld", body: "I'm actually at North Lakes right now, could you meet me at the picnic table near the start?", to: "tim")
 
