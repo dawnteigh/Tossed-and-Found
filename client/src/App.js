@@ -1,4 +1,5 @@
 import './App.css';
+import React from 'react'
 import { Switch, Route } from "react-router-dom"
 import Signup from './Signup';
 import Login from './Login';
@@ -10,6 +11,7 @@ import Courses from './Courses';
 import DiscReturn from './DiscReturn';
 
 function App() {
+  
   return (
     <div className="App">
       <NavBar />

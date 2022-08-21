@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useHistory } from 'react-router-dom'
 
 const UserContext = React.createContext();
 
@@ -12,19 +13,26 @@ function UserProvider({ children }) {
     body: ""
   })
 
+  const history = useHistory();
+
   useEffect(() => {
     fetch("/me")
     .then(r => r.json())
     .then(data => {
-      setUser(data)
-      data.error ? setLoggedIn(false) : setLoggedIn(true)
+      if (data.error) {
+      setLoggedIn(false)
+      history.push("/")
+      } else {
+        setUser(data)
+        setLoggedIn(true)
+      }
     })
   }, [])
 
   const login = (user) => {
     setUser(user)
     setLoggedIn(true)
-    // navigate to home page
+    history.push("/")
   }
 
   const logout = () => {
@@ -34,9 +42,8 @@ function UserProvider({ children }) {
     .then(() => {
       setUser({})
       setLoggedIn(false)
-      }
-    )
-    // navigate to login page
+      history.push('/login')
+    })
   }
 
   return (

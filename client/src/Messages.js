@@ -22,7 +22,7 @@ const Messages = () => {
         <br/>
         <i>--{m.user.username === user.username ? "me" : m.user.username}
         <br/>
-        {Moment(m.created_at).format('MMMM DD,  LT')}</i>{" "}
+        {Moment(m.created_at).format('MMMM DD,  LT')} </i>
         {m.user.username === user.username ? null :
           <button onClick={() =>
           setMsgForm({
