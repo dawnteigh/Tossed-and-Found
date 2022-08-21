@@ -2,7 +2,7 @@ class MessagesController < ApplicationController
 
   def index
     if current_user
-      msgs = current_user.messages + Message.where(to: current_user.username).order("created_at DESC")
+      msgs = current_user.messages + Message.where(to: current_user.username).order("created_at")
       render json: msgs, status: :ok
     else
       unauthorized

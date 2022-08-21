@@ -4,7 +4,7 @@ import Moment from 'moment'
 import { UserContext } from './context/user'
 // TODO: CREATE A MESSAGE COMPONENT TO RENDER PRETTIER MESSAGE CARDS
 const Messages = () => {
-  const { user } = useContext(UserContext)
+  const { user, msgForm, setMsgForm } = useContext(UserContext)
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
@@ -22,7 +22,16 @@ const Messages = () => {
         <br/>
         <i>--{m.user.username === user.username ? "me" : m.user.username}
         <br/>
-        {Moment(m.created_at).format('MMMM DD,  LT')}</i>
+        {Moment(m.created_at).format('MMMM DD,  LT')}</i>{" "}
+        {m.user.username === user.username ? null :
+          <button onClick={() =>
+          setMsgForm({
+            ...msgForm,
+            subject: m.subject,
+            to: m.user.username
+          })
+        }>Reply</button>
+      }
         <br/><br/>
       </div>
     )
