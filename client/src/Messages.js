@@ -15,25 +15,29 @@ const Messages = () => {
 
   const displayMessages = messages.map(m => {
     return (
-      <div>
+      <div key={m.id} >
         <b>{m.subject}</b> | to: { m.to === user.username ? "me" : m.to}
         <br/>
-          {m.body}
-          <br/>
-          <i>--{m.user.username === user.username ? "me" : m.user.username}
-          <br/>
-          {Moment(m.created_at).format('MMMM DD,  LT')}</i>
-          <br/><br/>
+        {m.body}
+        <br/>
+        <i>--{m.user.username === user.username ? "me" : m.user.username}
+        <br/>
+        {Moment(m.created_at).format('MMMM DD,  LT')}</i>
+        <br/><br/>
       </div>
     )
   })
+
+  const handleAddMessage = (msg) => {
+    setMessages([...messages, msg])
+  }
 
   return (
     <div>
       Here are your messages: 
       <br/>
       {displayMessages}
-      <MessageForm />
+      <MessageForm handleAddMessage={handleAddMessage} />
     </div>
   )
 }

@@ -6,6 +6,11 @@ function UserProvider({ children }) {
 
   const [user, setUser] = useState({})
   const [loggedIn, setLoggedIn] = useState(false)
+  const [msgForm, setMsgForm] = useState({
+    subject: "",
+    to: "",
+    body: ""
+  })
 
   useEffect(() => {
     fetch("/me")
@@ -35,7 +40,7 @@ function UserProvider({ children }) {
   }
 
   return (
-  <UserContext.Provider value={{ user, setUser, loggedIn, setLoggedIn, login, logout }}>
+  <UserContext.Provider value={{ user, setUser, loggedIn, setLoggedIn, msgForm, setMsgForm, login, logout }}>
     {children}
   </UserContext.Provider>
   )
