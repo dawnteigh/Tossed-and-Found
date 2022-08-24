@@ -14,7 +14,7 @@ const Courses = () => {
 
   const displayCourses = courses.map(c => {
     return (
-      <li>
+      <li key={c.id} >
         <b>{c.name}</b>
         <br/>
         <i>{c.location}</i>
