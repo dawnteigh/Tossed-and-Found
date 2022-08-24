@@ -20,6 +20,7 @@ const Discs = () => {
 
   return (
     <div>
+      <h2>Your Discography</h2>
       {displayDiscs}
       <br/>
       <DiscForm handleAddDisc={ handleAddDisc } />
