@@ -1,10 +1,35 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Course from './Course'
 import CourseForm from './CourseForm'
 
 const Courses = () => {
+
+  const [courses, setCourses] = useState([])
+
+  useEffect(() => {
+    fetch('/courses')
+    .then(r => r.json())
+    .then(data => setCourses(data))
+  }, [])
+
+  const displayCourses = courses.map(c => {
+    return (
+      <li>
+        <b>{c.name}</b>
+        <br/>
+        <i>{c.location}</i>
+      </li>
+    )
+  })
+
   return (
-    <div>Courses</div>
+    <div>
+      <ul>
+      {displayCourses}
+      </ul>
+      <br/>
+      <CourseForm />
+    </div>
   )
 }
 

@@ -16,7 +16,6 @@ function UserProvider({ children }) {
   const history = useHistory();
 
   useEffect(() => {
-    if (!user) {
       fetch("/me")
       .then(r => r.json())
       .then(data => {
@@ -28,15 +27,7 @@ function UserProvider({ children }) {
           setLoggedIn(true)
         }
       })
-    }
-  }, [user])
-
-  // useEffect(() => {
-  //   if (!user) {
-
-  //   }
-
-  // }, [])
+  }, [])
 
   const login = (user) => {
     setUser(user)

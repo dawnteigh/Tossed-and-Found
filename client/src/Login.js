@@ -22,8 +22,8 @@ const Login = () => {
     .then(r => r.json())
     .then(user => {
       if (!user.error) {
-      login(user)
-      setError("")
+        setError("")
+        login(user)
       } else {
         setError(user.error)
       }
