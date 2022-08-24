@@ -14,11 +14,15 @@ const Discs = () => {
 
   const displayDiscs = discs.map(d => <Disc key={d.id} disc={d} /> )
 
+  const handleAddDisc = (d) => {
+    setDiscs([...discs, d])
+  }
+
   return (
     <div>
       {displayDiscs}
       <br/>
-      <DiscForm />
+      <DiscForm handleAddDisc={ handleAddDisc } />
     </div>
   )
 }
