@@ -16,18 +16,27 @@ function UserProvider({ children }) {
   const history = useHistory();
 
   useEffect(() => {
-    fetch("/me")
-    .then(r => r.json())
-    .then(data => {
-      if (data.error) {
-      setLoggedIn(false)
-      history.push("/")
-      } else {
-        setUser(data)
-        setLoggedIn(true)
-      }
-    })
-  }, [])
+    if (!user) {
+      fetch("/me")
+      .then(r => r.json())
+      .then(data => {
+        if (data.error) {
+        setLoggedIn(false)
+        history.push("/")
+        } else {
+          setUser(data)
+          setLoggedIn(true)
+        }
+      })
+    }
+  }, [user])
+
+  // useEffect(() => {
+  //   if (!user) {
+
+  //   }
+
+  // }, [])
 
   const login = (user) => {
     setUser(user)
