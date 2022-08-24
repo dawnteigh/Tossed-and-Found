@@ -22,13 +22,17 @@ const Courses = () => {
     )
   })
 
+  const handleAddCourse = (c) => {
+    setCourses([...courses, c])
+  }
+
   return (
     <div>
       <ul>
       {displayCourses}
       </ul>
       <br/>
-      <CourseForm />
+      <CourseForm handleAddCourse={ handleAddCourse }/>
     </div>
   )
 }
