@@ -7,6 +7,7 @@ import Home from './Home';
 import NavBar from './NavBar';
 import Discs from './Discs';
 import Scores from './Scores';
+import ScoreCard from './ScoreCard';
 import Courses from './Courses';
 import DiscReturn from './DiscReturn';
 
@@ -19,6 +20,7 @@ function App() {
         <Route exact path="/signup" render={ (props) => <Signup { ...props } />} />
         <Route exact path="/login" render={ (props) =>  <Login { ...props } />} />
         <Route exact path="/discs" render={ (props) => <Discs { ...props }/>} />
+        <Route exact path="/scorecard" render={ (props) => <ScoreCard { ...props }/>} />
         <Route exact path="/scores" render={ (props) => <Scores { ...props }/>} />
         <Route exact path="/courses" render={ (props) => <Courses { ...props }/>} />
         <Route exact path="/found-disc" render={ (props) => <DiscReturn { ...props }/>} />

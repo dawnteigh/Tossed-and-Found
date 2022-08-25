@@ -40,8 +40,8 @@ kat.discs.create([
 
 puts "Seeding courses..."
 
-nlc = Course.create(name: "North Lakes Creekside", location: "Denton, TX")
-nll = Course.create(name: "North Lakes Lakeside", location: "Denton, TX")
+nlc = Course.create(name: "North Lakes Creekside", location: "Denton, TX", holes: 18)
+nll = Course.create(name: "North Lakes Lakeside", location: "Denton, TX", holes: 18)
 
 puts "Seeding scores..."
 

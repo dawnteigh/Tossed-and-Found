@@ -3,4 +3,5 @@ class Course < ApplicationRecord
   has_many :users, through: :scores
   validates :name, presence: true
   validates :location, presence: true
+  validates :holes, numericality: true
 end

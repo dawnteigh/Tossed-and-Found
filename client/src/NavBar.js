@@ -50,10 +50,10 @@ const NavBar = () => {
         Courses
       </NavLink>
       <NavLink
-        to="/scores"
+        to="/scorecard"
         exact
       >
-        Scores
+        Scorecard
       </NavLink>
       <NavLink
         to="/found-disc"

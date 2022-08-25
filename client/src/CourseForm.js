@@ -5,11 +5,12 @@ const CourseForm = ({ handleAddCourse }) => {
   const [cForm, setCForm] = useState({
     name: "",
     location: "",
+    holes: ""
   })
 
   const handleChange = (e) => {
     const key = e.target.id
-    const value = e.target.value
+    const value = key === "holes" ? parseInt(e.target.value) : e.target.value
     setCForm({
       ...cForm,
       [key]: value
@@ -25,7 +26,8 @@ const CourseForm = ({ handleAddCourse }) => {
       },
       body: JSON.stringify({
         name: cForm.name,
-        location: cForm.location
+        location: cForm.location,
+        holes: cForm.holes
       })
     })
     .then(r => r.json())
@@ -33,7 +35,8 @@ const CourseForm = ({ handleAddCourse }) => {
       handleAddCourse(c)
       setCForm({
         name: "",
-        location: ""
+        location: "",
+        holes: ""
       })
     })
   }
@@ -50,6 +53,14 @@ const CourseForm = ({ handleAddCourse }) => {
           placeholder="Name of Course"
           onChange={handleChange}
         />
+          <br/>
+          <input
+            type="number"
+            id="holes"
+            value={cForm.holes}
+            placeholder="Number of Holes"
+            onChange={handleChange}
+          />
         <br/>
         <input
           type="text"

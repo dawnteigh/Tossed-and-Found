@@ -61,7 +61,7 @@ class CoursesController < ApplicationController
   private
 
   def course_params
-    params.permit(:name, :location)
+    params.permit(:name, :location, :holes)
   end
   
 end

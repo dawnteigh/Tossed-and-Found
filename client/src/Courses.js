@@ -17,6 +17,8 @@ const Courses = () => {
       <li key={c.id} >
         <b>{c.name}</b>
         <br/>
+        {c.holes} Holes
+        <br/>
         <i>{c.location}</i>
       </li>
     )
