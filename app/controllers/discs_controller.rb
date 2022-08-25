@@ -62,7 +62,7 @@ class DiscsController < ApplicationController
   def tossed_and_found
     disc = Disc.find_by(finder_key: params[:key])
     if disc
-      render json: disc, include: :user, status: :ok
+      render json: disc, status: :ok
     else
       not_found "disc"
     end
