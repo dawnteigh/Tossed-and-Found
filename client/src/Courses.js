@@ -13,15 +13,7 @@ const Courses = () => {
   }, [])
 
   const displayCourses = courses.map(c => {
-    return (
-      <li key={c.id} >
-        <b>{c.name}</b>
-        <br/>
-        {c.holes} Holes
-        <br/>
-        <i>{c.location}</i>
-      </li>
-    )
+    return <Course course={c} key={c.id} />
   })
 
   const handleAddCourse = (c) => {
@@ -30,9 +22,8 @@ const Courses = () => {
 
   return (
     <div>
-      <ul>
+      <h4>Click on a course to start scorekeeping a new round there!</h4>
       {displayCourses}
-      </ul>
       <br/>
       <CourseForm handleAddCourse={ handleAddCourse }/>
     </div>

@@ -1,8 +1,23 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { UserContext } from './context/user';
 
-const Course = () => {
+const Course = ({ course }) => {
+
+  const { setSelectedCourse, history } = useContext(UserContext)
+
+  const { name, location, holes } = course
+
+  const handleClick = () => {
+    setSelectedCourse(course)
+    history.push('/scorecard')
+  }
+
   return (
-    <div>Course</div>
+    <div onClick={handleClick} >
+      <b>{name}</b> | {holes} Holes<br/>
+      <i>{location}</i>
+      <br/><br/>
+    </div>
   )
 }
 

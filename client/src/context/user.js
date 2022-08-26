@@ -7,6 +7,7 @@ function UserProvider({ children }) {
 
   const [user, setUser] = useState({})
   const [loggedIn, setLoggedIn] = useState(false)
+  const [selectedCourse, setSelectedCourse] = useState(false)
   const [msgForm, setMsgForm] = useState({
     subject: "",
     to: "",
@@ -47,7 +48,7 @@ function UserProvider({ children }) {
   }
 
   return (
-  <UserContext.Provider value={{ user, setUser, loggedIn, setLoggedIn, msgForm, setMsgForm, login, logout, history }}>
+  <UserContext.Provider value={{ user, setUser, loggedIn, setLoggedIn, msgForm, setMsgForm, selectedCourse, setSelectedCourse, login, logout, history }}>
     {children}
   </UserContext.Provider>
   )
