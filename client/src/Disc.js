@@ -36,7 +36,7 @@ const Disc = ({ disc, handleRemoveDisc }) => {
       <br/>
       <b>Color:</b> {color}
       <br/>
-      <b>Weight:</b> {weight}
+      <b>Weight:</b> {weight}g
       <br/>
       <b>ID:</b> {finder_key}
       <br/>
