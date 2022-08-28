@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const Disc = ({ disc }) => {
+const Disc = ({ disc, handleRemoveDisc }) => {
 
   const { id, make, model, color, disc_type, weight, img, finder_key, lost } = disc
   const [checked, setChecked] = useState(lost)
@@ -19,6 +19,13 @@ const Disc = ({ disc }) => {
     .then(() => setChecked(!checked))
   }
 
+  const handleDelete = () => {
+    fetch(`/discs/${id}`, {
+      method: "DELETE"
+    })
+    handleRemoveDisc(id)
+  }
+
   return (
     <div>
       <b>{make} {model}</b>
@@ -34,6 +41,8 @@ const Disc = ({ disc }) => {
       <b>ID:</b> {finder_key}
       <br/>
       <b>Lost?</b> <input type="checkbox" checked={checked} onChange={handleChange} />
+      <br/>
+      <button onClick={handleDelete} >Delete</button>
       <br/><br/>
     </div>
   )

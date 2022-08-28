@@ -11,12 +11,17 @@ const Discs = () => {
     .then(r => r.json())
     .then(data => setDiscs(data))
   }, [])
-
-  const displayDiscs = discs.map(d => <Disc key={d.id} disc={d} /> )
-
+  
   const handleAddDisc = (d) => {
     setDiscs([...discs, d])
   }
+  
+  const handleRemoveDisc = (id) => {
+    const updatedDiscs = discs.filter(d => d.id !== id)
+    setDiscs(updatedDiscs)
+  }
+  
+    const displayDiscs = discs.map(d => <Disc key={d.id} disc={d} handleRemoveDisc={handleRemoveDisc} /> )
 
   return (
     <div>
