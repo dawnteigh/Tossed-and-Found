@@ -3,8 +3,8 @@ import React, { useState } from 'react'
 const ScoreForm = ({ hole, tally }) => {
 
   const [score, setScore] = useState({
-    par: 0,
-    strokes: 0
+    par: "",
+    strokes: ""
   })
 
   const handleChange = (e) => {
@@ -32,7 +32,6 @@ const ScoreForm = ({ hole, tally }) => {
         <input
           type="number"
           id="strokes"
-          placeholder="Strokes"
           value={score.strokes}
           onChange={handleChange}
         />

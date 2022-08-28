@@ -5,7 +5,7 @@ import ScoreForm from './ScoreForm'
 const ScoreCard = () => {
 
   const { selectedCourse, history } = useContext(UserContext)
-  const { id, name, location, holes } = selectedCourse
+  const { id, name, holes } = selectedCourse
   const [holesArray, setHolesArray] = useState([])
   const [par, setPar] = useState(0)
   const [strokes, setStrokes] = useState(0)
@@ -26,6 +26,22 @@ const ScoreCard = () => {
 
   const scoreForms = holesArray.map(h => <ScoreForm key={h} hole={h} tally={tally} />)
 
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    fetch('/scores', {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        course_id: id,
+        par: par,
+        strokes: strokes
+      })
+    })
+    .then(r => r.json())
+    .then(score => console.log(score))
+  }
 
   return (
     <div>
@@ -33,7 +49,7 @@ const ScoreCard = () => {
       <b>Par:</b> {par} <b>Strokes:</b> {strokes}
         {scoreForms}
         <br/>
-      <form>
+      <form onSubmit={handleSubmit}>
         <input type="submit" value="Finished!" />
       </form>
     </div>

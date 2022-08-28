@@ -46,18 +46,18 @@ nll = Course.create(name: "North Lakes Lakeside", location: "Denton, TX", holes:
 puts "Seeding scores..."
 
 tim.scores.create([
-  { strokes: 60, par: "+6", course_id: nlc.id },
-  { strokes: 62, par: "+3", course_id: nll.id }
+  { strokes: 60, par: 54, course_id: nlc.id },
+  { strokes: 62, par: 59, course_id: nll.id }
 ])
 
 rose.scores.create([
-  { strokes: 56, par: "+2", course_id: nlc.id },
-  { strokes: 66, par: "+7", course_id: nll.id }
+  { strokes: 56, par: 54, course_id: nlc.id },
+  { strokes: 66, par: 59, course_id: nll.id }
 ])
 
 kat.scores.create([
-  { strokes: 53, par: "-1", course_id: nlc.id },
-  { strokes: 59, par: "+0", course_id: nll.id }
+  { strokes: 53, par: 54, course_id: nlc.id },
+  { strokes: 59, par: 59, course_id: nll.id }
 ])
 
 puts "Seeding messages..."
