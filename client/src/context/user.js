@@ -42,6 +42,7 @@ function UserProvider({ children }) {
     })
     .then(() => {
       setUser({})
+      setSelectedCourse(false)
       setLoggedIn(false)
       history.push('/login')
     })
