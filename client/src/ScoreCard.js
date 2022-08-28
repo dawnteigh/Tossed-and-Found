@@ -40,7 +40,7 @@ const ScoreCard = () => {
       })
     })
     .then(r => r.json())
-    .then(score => console.log(score))
+    .then(() => history.push('/scores'))
   }
 
   return (

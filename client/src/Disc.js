@@ -1,8 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const Disc = ({ disc }) => {
 
-  const { make, model, color, disc_type, weight, img, finder_key } = disc
+  const { id, make, model, color, disc_type, weight, img, finder_key, lost } = disc
+  const [checked, setChecked] = useState(lost)
+
+  const handleChange = () => {
+    fetch (`/discs/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        lost: !lost
+      })
+    })
+    .then(r => r.json())
+    .then(() => setChecked(!checked))
+  }
 
   return (
     <div>
@@ -17,6 +32,8 @@ const Disc = ({ disc }) => {
       <b>Weight:</b> {weight}
       <br/>
       <b>ID:</b> {finder_key}
+      <br/>
+      <b>Lost?</b> <input type="checkbox" checked={checked} onChange={handleChange} />
       <br/><br/>
     </div>
   )
