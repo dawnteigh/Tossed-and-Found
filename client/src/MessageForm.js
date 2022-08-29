@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { UserContext } from './context/user'
+import TextareaAutosize from 'react-textarea-autosize';
 
 const MessageForm = ({ handleAddMessage }) => {
 
@@ -57,10 +58,11 @@ const MessageForm = ({ handleAddMessage }) => {
       />
       <br/>
       <label>Message: </label>
-      <textarea
+      <TextareaAutosize
         id="body"
         value={msgForm.body}
         onChange={handleChange}
+        size="auto"
       />
       <br/>
       <input type="submit" />

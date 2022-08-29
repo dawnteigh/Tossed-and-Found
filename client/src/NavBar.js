@@ -6,21 +6,18 @@ import { NavLink } from "react-router-dom";
 const NavBar = () => {
   const { loggedIn, logout } = useContext(UserContext);
 
-  // const logoutUser = () => {
-    
-  //   .then(() => logout())
-  // }
-
  if (!loggedIn) {
   return (
     <div>
       <NavLink
+        className="navTab"
         to="/login"
         exact
       >
         Log In
       </NavLink>
       <NavLink
+        className="navTab"
         to="/signup"
         exact
       >
@@ -32,36 +29,41 @@ const NavBar = () => {
   return (
     <div>
       <NavLink
+        className="navTab"
         to="/"
         exact
       >
         Home
       </NavLink>
       <NavLink
+        className="navTab"
         to="/discs"
         exact
       >
         Discs
       </NavLink>
       <NavLink
+        className="navTab"
         to="/courses"
         exact
       >
         Courses
       </NavLink>
       <NavLink
+        className="navTab"
         to="/scorecard"
         exact
       >
         Scorecard
       </NavLink>
       <NavLink
+        className="navTab"
         to="/found-disc"
         exact
       >
         Found a Disc?
       </NavLink>
-      <button onClick={logout}>Logout</button>
+      <button className="navTab" onClick={logout}>Logout</button>
     </div>
   )
 }

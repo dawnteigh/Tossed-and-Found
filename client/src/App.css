@@ -10,3 +10,23 @@
   bottom: 0px;
 }
 
+.navTab {
+  display: inline-block;
+  width: 10%;
+  padding: 12px;
+  margin: 6px;
+  background: rgb(255, 140, 0);
+  text-decoration: none;
+  color: white;
+}
+
+.navTab:hover {
+  display: inline-block;
+  width: 10%;
+  padding: 12px;
+  margin: 6px;
+  background: rgb(210, 209, 208);
+  text-decoration: none;
+  color: rgb(255, 140, 0);;
+}
+
