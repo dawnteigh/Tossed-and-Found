@@ -1,4 +1,5 @@
 import './App.css';
+import TossedAndFound from "./TossedAndFound.png"
 import React from 'react'
 import { Switch, Route } from "react-router-dom"
 import Signup from './Signup';
@@ -15,6 +16,7 @@ function App() {
   
   return (
     <div className="App">
+      <img src={TossedAndFound} alt="Tossed and Found" className="logo" />
       <NavBar />
       <Switch>
         <Route exact path="/signup" render={ (props) => <Signup { ...props } />} />
