@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Disc from './Disc'
 import DiscForm from './DiscForm'
+import { Card, Divider } from 'semantic-ui-react'
 
 const Discs = () => {
 
@@ -20,16 +21,31 @@ const Discs = () => {
     const updatedDiscs = discs.filter(d => d.id !== id)
     setDiscs(updatedDiscs)
   }
-  
-    const displayDiscs = discs.map(d => <Disc key={d.id} disc={d} handleRemoveDisc={handleRemoveDisc} /> )
 
+  const handleUpdateDisc = (updatedDisc) => {
+    const updatedDiscs = discs.map(d => {
+      if (d.id === updatedDisc.id) {
+        return updatedDisc;
+      } else {
+        return d;
+      }
+    });
+    setDiscs(updatedDiscs);
+  }
+  
+  const displayDiscs = discs.map(d => <Disc key={d.id} disc={d} handleRemoveDisc={handleRemoveDisc} handleUpdateDisc={handleUpdateDisc} /> )
+    
   return (
-    <div>
+    <>
       <h2>Your Discography</h2>
-      {displayDiscs}
-      <br/>
-      <DiscForm handleAddDisc={ handleAddDisc } />
-    </div>
+      <Card.Group itemsPerRow={3} id="discGrid">
+        {displayDiscs}
+      </Card.Group>
+      <Divider />
+      <div>
+        <DiscForm handleAddDisc={ handleAddDisc } />
+      </div>
+    </>
   )
 }
 

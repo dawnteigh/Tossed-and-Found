@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
+import { Card, Image } from 'semantic-ui-react'
 
-const Disc = ({ disc, handleRemoveDisc }) => {
+const Disc = ({ disc, handleRemoveDisc, handleUpdateDisc }) => {
 
   const { id, make, model, color, disc_type, weight, img, finder_key, lost } = disc
   const [checked, setChecked] = useState(lost)
@@ -16,6 +17,7 @@ const Disc = ({ disc, handleRemoveDisc }) => {
       })
     })
     .then(r => r.json())
+    .then(disc => handleUpdateDisc(disc))
     .then(() => setChecked(!checked))
   }
 
@@ -26,25 +28,28 @@ const Disc = ({ disc, handleRemoveDisc }) => {
     handleRemoveDisc(id)
   }
 
+
   return (
-    <div>
-      <b>{make} {model}</b>
-      <br/>
-      <img src={img} width="200px" height="auto" />
-      <br/>
-      <b>Type:</b> {disc_type}
-      <br/>
-      <b>Color:</b> {color}
-      <br/>
-      <b>Weight:</b> {weight}g
-      <br/>
-      <b>ID:</b> {finder_key}
-      <br/>
-      <b>Lost?</b> <input type="checkbox" checked={checked} onChange={handleChange} />
-      <br/>
-      <button onClick={handleDelete} >Delete</button>
-      <br/><br/>
-    </div>
+    <Card>
+    <Image size="medium" src={img} />
+    <Card.Content>
+      <Card.Header>{make} {model}</Card.Header>
+      <Card.Meta>
+        <span className='date'>{disc_type}</span>
+      </Card.Meta>
+      <Card.Description>
+        <b>Color:</b> {color}
+        <br/>
+        <b>Weight:</b> {weight}g
+        <br/>
+        <b>ID:</b> {finder_key}
+      </Card.Description>
+    </Card.Content>
+    <Card.Content extra>
+    <b>Lost?</b> <input type="checkbox" checked={checked} onChange={handleChange} />
+    <button className="delete" onClick={handleDelete}>Delete</button>
+    </Card.Content>
+  </Card>
   )
 }
 
