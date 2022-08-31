@@ -23,9 +23,7 @@ function App() {
         <Route exact path="/login" render={ (props) =>  <Login { ...props } />} />
         <Route exact path="/discs" render={ (props) => <Discs { ...props }/>} />
         <Route exact path="/scorecard" render={ (props) => <ScoreCard { ...props }/>} />
-        <Route exact path="/scores" render={ (props) => <Scores { ...props }/>} />
         <Route exact path="/courses" render={ (props) => <Courses { ...props }/>} />
-        <Route exact path="/found-disc" render={ (props) => <DiscReturn { ...props }/>} />
         <Route exact path="/" render={ (props) => <Home { ...props }/>} />
       </Switch>
     </div>

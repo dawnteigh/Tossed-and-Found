@@ -62,7 +62,6 @@ const MessageForm = ({ handleAddMessage }) => {
         id="body"
         value={msgForm.body}
         onChange={handleChange}
-        size="auto"
       />
       <br/>
       <input type="submit" />

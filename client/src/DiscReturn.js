@@ -1,8 +1,8 @@
 import React, { useState, useContext } from 'react'
 import { UserContext } from './context/user'
 
-const DiscReturn = () => {
-  const { msgForm, setMsgForm, history } = useContext(UserContext)
+const DiscReturn = ({ setActiveIndex }) => {
+  const { msgForm, setMsgForm } = useContext(UserContext)
   const [search, setSearch] = useState("")
   const [foundDisc, setFoundDisc] = useState(false)
 
@@ -27,7 +27,7 @@ const DiscReturn = () => {
       subject: `${foundDisc.color} ${foundDisc.model}`,
       to: foundDisc.user.username
     })
-    history.push('/')
+    setActiveIndex("0")
   }
 
   return (

@@ -56,14 +56,7 @@ const NavBar = () => {
       >
         Scorecard
       </NavLink>
-      <NavLink
-        className="navTab"
-        to="/found-disc"
-        exact
-      >
-        Found a Disc?
-      </NavLink>
-      <button className="navTab" onClick={logout}>Logout</button>
+      <button className="logout" onClick={logout}>Logout 🡺</button>
     </div>
   )
 }

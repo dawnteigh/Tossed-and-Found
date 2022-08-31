@@ -1,5 +1,11 @@
 .App {
   text-align: center;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+#home {
+  margin-top: 2%;
 }
 
 .logo {
@@ -20,13 +26,38 @@
   color: white;
 }
 
-.navTab:hover {
+.navTab:hover, .logout:hover, button:hover, input[type=submit]:hover {
+  background: rgb(210, 209, 208);
+  color: rgb(255, 140, 0);
+  cursor: pointer;
+}
+
+.logout {
+  position: absolute;
+  right: 5%;
+  top: 0%;
   display: inline-block;
   width: 10%;
   padding: 12px;
   margin: 6px;
-  background: rgb(210, 209, 208);
+  border: none;
+  background: rgb(255, 140, 0);
   text-decoration: none;
-  color: rgb(255, 140, 0);;
+  color: white;
+}
+
+button, input[type=submit] {
+  border: none;
+  background: rgb(255, 140, 0);
+  text-decoration: none;
+  color: white;
+}
+
+input[type=checkbox] {
+  background: rgb(255, 140, 0);
+}
+
+.message {
+  text-align: left;
 }
 
