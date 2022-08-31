@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Course from './Course'
 import CourseForm from './CourseForm'
+import { Card } from 'semantic-ui-react'
 
 const Courses = () => {
 
@@ -23,7 +24,9 @@ const Courses = () => {
   return (
     <div>
       <h4>Click on a course to start scorekeeping a new round there!</h4>
-      {displayCourses}
+      <Card.Group itemsPerRow={1} id="courseGrid">
+        {displayCourses}
+      </Card.Group>
       <br/>
       <CourseForm handleAddCourse={ handleAddCourse }/>
     </div>

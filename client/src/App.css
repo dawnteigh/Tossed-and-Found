@@ -64,8 +64,18 @@ input[type=checkbox] {
 #discGrid {
   margin-left: 20%;
   margin-right: 20%;
-  /* padding-left: 5%;
-  padding-right: 5%; */
+  overflow: auto;
+  height: 60vh;
+}
+
+#courseGrid {
+  margin-left: 30%;
+  margin-right: 30%;
+  overflow: auto;
+  height: 60vh;
+}
+
+#formGrid {
   overflow: auto;
   height: 60vh;
 }

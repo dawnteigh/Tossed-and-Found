@@ -20,23 +20,24 @@ const ScoreForm = ({ hole, tally }) => {
     <div>
       <form>
       <h4>Hole {hole}</h4>
-      <label>Par: </label>
       <input
           type="number"
           id="par"
           value={score.par}
+          placeholder="Par"
           onChange={handleChange}
         />
         <br/>
-        <label>Strokes: </label>
         <input
           type="number"
           id="strokes"
           value={score.strokes}
+          placeholder="Strokes"
           onChange={handleChange}
         />
       </form>
       <button onClick={() => tally(score.par, score.strokes)}>Record</button>
+      {" "}
       <button onClick={() => tally(-score.par, -score.strokes)}>Undo</button>
     </div>
   )

@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { UserContext } from './context/user'
 import ScoreForm from './ScoreForm'
+import { Container } from 'semantic-ui-react'
 
 const ScoreCard = () => {
 
@@ -47,7 +48,9 @@ const ScoreCard = () => {
     <div>
       <h3>Currently playing at: {name}</h3><br/>
       <b>Par:</b> {par} <b>Strokes:</b> {strokes}
+      <Container id="formGrid">
         {scoreForms}
+      </Container>
         <br/>
       <form onSubmit={handleSubmit}>
         <input type="submit" value="Finished!" />
