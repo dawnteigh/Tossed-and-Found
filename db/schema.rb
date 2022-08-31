@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 2022_08_17_213958) do
   create_table "scores", force: :cascade do |t|
     t.integer "strokes"
     t.integer "par"
+    t.string "player"
     t.integer "user_id"
     t.integer "course_id"
     t.datetime "created_at", precision: 6, null: false
