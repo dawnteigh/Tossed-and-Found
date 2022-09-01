@@ -8,18 +8,18 @@ class DiscsController < ApplicationController
     end
   end
 
-  def show
-    if current_user
-      disc = current_user.discs.find_by(id: params[:id])
-      if disc
-        render json: disc, status: :ok
-      else
-        not_found "disc"
-      end
-    else
-      unauthorized
-    end
-  end
+  # def show
+  #   if current_user
+  #     disc = current_user.discs.find_by(id: params[:id])
+  #     if disc
+  #       render json: disc, status: :ok
+  #     else
+  #       not_found "disc"
+  #     end
+  #   else
+  #     unauthorized
+  #   end
+  # end
 
   def create
     if current_user

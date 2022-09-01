@@ -41,25 +41,26 @@ const MessageForm = ({ handleAddMessage }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label>Subject: </label>
       <input
         type="text"
         id="subject"
+        placeholder="Subject"
         value={msgForm.subject}
         onChange={handleChange}
       />
       <br/>
-      <label>To: </label>
       <input
         type="text"
         id="to"
+        placeholder='To:'
         value={msgForm.to}
         onChange={handleChange}
       />
       <br/>
-      <label>Message: </label>
       <TextareaAutosize
         id="body"
+        placeholder='Type your message here'
+        minRows={3}
         value={msgForm.body}
         onChange={handleChange}
       />

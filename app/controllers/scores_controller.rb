@@ -17,19 +17,19 @@ class ScoresController < ApplicationController
     end
   end
 
-  def update
-    if current_user
-      score = current_user.scores.find_by(id: params[:id])
-      if score
-        score.update!(score_params)
-        render json: score, status: :ok
-      else
-        not_found "score"
-      end
-    else
-      unauthorized
-    end
-  end
+  # def update
+  #   if current_user
+  #     score = current_user.scores.find_by(id: params[:id])
+  #     if score
+  #       score.update!(score_params)
+  #       render json: score, status: :ok
+  #     else
+  #       not_found "score"
+  #     end
+  #   else
+  #     unauthorized
+  #   end
+  # end
 
   def destroy
     if current_user
