@@ -2,7 +2,7 @@ class ScoresController < ApplicationController
 
   def index
     if current_user
-      render json: current_user.scores, status: :ok
+      render json: current_user.scores.sort_by{ |s| s.created_at }.reverse, include: :course, status: :ok
     else
       unauthorized
     end

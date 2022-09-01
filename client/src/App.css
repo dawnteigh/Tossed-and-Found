@@ -80,6 +80,11 @@ input[type=checkbox] {
   height: 60vh;
 }
 
+.score {
+  font-size: 5em;
+  font-weight: bold;
+}
+
 .delete {
   right: 5%;
   bottom: 3%;

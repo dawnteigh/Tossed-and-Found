@@ -16,7 +16,8 @@ const Messages = () => {
 
   const displayMessages = messages.map(m => {
     return (
-    <Comment 
+    <Comment
+      key={m.id}
       className="message"
       style={ m.user.username === user.username ? { background: "rgba(255, 140, 0, 0.325)"} : null }
     >
