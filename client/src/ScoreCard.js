@@ -5,7 +5,7 @@ import { Container } from 'semantic-ui-react'
 
 const ScoreCard = () => {
 
-  const { selectedCourse, history } = useContext(UserContext)
+  const { selectedCourse, history, user } = useContext(UserContext)
   const { id, name, holes } = selectedCourse
   const [holesArray, setHolesArray] = useState([])
   const [par, setPar] = useState(0)
@@ -37,11 +37,12 @@ const ScoreCard = () => {
       body: JSON.stringify({
         course_id: id,
         par: par,
-        strokes: strokes
+        strokes: strokes,
+        player: user.username
       })
     })
     .then(r => r.json())
-    .then(() => history.push('/scores'))
+    .then(() => history.push('/'))
   }
 
   return (

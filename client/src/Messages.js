@@ -3,6 +3,7 @@ import MessageForm from './MessageForm'
 import Moment from 'moment'
 import { Comment, Container, Divider } from 'semantic-ui-react'
 import { UserContext } from './context/user'
+
 const Messages = () => {
   const { user, msgForm, setMsgForm } = useContext(UserContext)
   const [messages, setMessages] = useState([]);

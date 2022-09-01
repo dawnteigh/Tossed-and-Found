@@ -11,7 +11,6 @@ class ScoresController < ApplicationController
   def create
     if current_user
       score = current_user.scores.create!(score_params)
-      score.update(player: current_user.username)
       render json: score, status: :created
     else
       unauthorized
@@ -49,7 +48,7 @@ class ScoresController < ApplicationController
   private
 
   def score_params
-    params.permit(:strokes, :par, :course_id)
+    params.permit(:strokes, :par, :course_id, :player)
   end
 
 end
