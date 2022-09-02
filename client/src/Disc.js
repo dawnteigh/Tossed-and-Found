@@ -34,13 +34,6 @@ const Disc = ({ disc, handleRemoveDisc, handleUpdateDisc }) => {
     fetch(`/discs/${id}`, {
       method: "DELETE"
     })
-    .then(r => r.json())
-    .then(r => { 
-      if (r.error) {
-      setErrorMessages(r.error)
-      setOpen(true)
-      }
-    })
     handleRemoveDisc(id)
   }
 

@@ -107,7 +107,7 @@ const DiscForm = ({ handleAddDisc }) => {
           type="text"
           id="img"
           value={dForm.img}
-          placeholder="Image URL"
+          placeholder="Image URL (optional)"
           onChange={handleChange}
         />
         <br/>

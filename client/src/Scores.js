@@ -25,16 +25,8 @@ const Scores = () => {
     fetch(`/scores/${e.target.id}`, {
       method: "DELETE"
     })
-    .then(r => r.json())
-    .then(r => {
-      if (r.error) {
-        setErrorMessages(r.error)
-        setOpen(true)
-      } else {
-          const updatedScores = scores.filter(s => s.id !== parseInt(e.target.id))
-          setScores(updatedScores)
-        }
-    })
+    const updatedScores = scores.filter(s => s.id !== parseInt(e.target.id))
+    setScores(updatedScores)
   }
 
   const displayScores = scores.map(s => {

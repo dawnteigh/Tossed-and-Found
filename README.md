@@ -16,9 +16,15 @@ Obviously, a whole lot of work is left to be done if this is ever going to be a 
 Future additions/changes:
 - Implement a system that encourages and rewards returning lost discs. Users with a certain community standing may receive invites to exclusive tournaments and events, or special offers from sponsors.
 
+- Fleshed out user profiles.
+
 - Allow for further disc editing (at least allow users to update the img).
 
 - Vastly improved Courses section, with maps, location services, a search feature, and a filter to show the courses nearest to the user first. New course submissions will have to be approved before they are added.
+
+- Better looking UI and logo
+
+- Better messaging, where users can delete messages
 
 ## Acknowledgements
 - Tossed and Found utilizes styled components from [Semantic UI React](https://react.semantic-ui.com/).
