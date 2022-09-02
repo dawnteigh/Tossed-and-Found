@@ -47,7 +47,8 @@ const Signup = () => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <label>Name: </label>
+        <label><b>Username:</b></label>
+        <br/>
         <input
           type="text"
           id="username"
@@ -55,7 +56,8 @@ const Signup = () => {
           onChange={handleChange}
         />
         <br/>
-        <label>Password: </label>
+        <label><b>Password:</b></label>
+        <br/>
         <input
           type="password"
           id="password"
@@ -63,7 +65,8 @@ const Signup = () => {
           onChange={handleChange}
         />
         <br/>
-        <label>Confirm Password: </label>
+        <label><b>Confirm Password:</b></label>
+        <br/>
         <input
           type="password"
           id="password_confirmation"
