@@ -26,9 +26,9 @@ function UserProvider({ children }) {
         setLoggedIn(false)
         history.push("/")
         } else {
-          setUser(data)
-          setLoggedIn(true)
-        }
+            setUser(data)
+            setLoggedIn(true)
+          }
       })
   }, [])
 
