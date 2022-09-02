@@ -1,10 +1,12 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Card, Image } from 'semantic-ui-react'
+import { UserContext } from './context/user'
 
 const Disc = ({ disc, handleRemoveDisc, handleUpdateDisc }) => {
 
   const { id, make, model, color, disc_type, weight, img, finder_key, lost } = disc
   const [checked, setChecked] = useState(lost)
+  const { setOpen, setErrorMessages } = useContext(UserContext)
 
   const handleChange = () => {
     fetch (`/discs/${id}`, {
@@ -17,13 +19,27 @@ const Disc = ({ disc, handleRemoveDisc, handleUpdateDisc }) => {
       })
     })
     .then(r => r.json())
-    .then(disc => handleUpdateDisc(disc))
-    .then(() => setChecked(!checked))
+    .then(disc => {
+      if (disc.error) {
+        setErrorMessages(disc.error)
+        setOpen(true)
+      } else {
+        handleUpdateDisc(disc)
+        setChecked(!checked)
+      }
+    })
   }
 
   const handleDelete = () => {
     fetch(`/discs/${id}`, {
       method: "DELETE"
+    })
+    .then(r => r.json())
+    .then(r => { 
+      if (r.error) {
+      setErrorMessages(r.error)
+      setOpen(true)
+      }
     })
     handleRemoveDisc(id)
   }

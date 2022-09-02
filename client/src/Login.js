@@ -3,11 +3,10 @@ import { UserContext } from './context/user'
 
 const Login = () => {
 
-  const { login } = useContext(UserContext);
+  const { login, setOpen, setErrorMessages } = useContext(UserContext);
 
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
-  const [error, setError] = useState("")
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -21,11 +20,11 @@ const Login = () => {
     })
     .then(r => r.json())
     .then(user => {
-      if (!user.error) {
-        setError("")
+      if (user.error) {
+        setErrorMessages(user.error)
+        setOpen(true)
+    } else {
         login(user)
-      } else {
-        setError(user.error)
       }
     })
   }
@@ -52,7 +51,6 @@ const Login = () => {
         <input type="submit" />
         </form>
         <br/>
-        {error}
     </div>
   )
 }

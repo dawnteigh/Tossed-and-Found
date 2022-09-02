@@ -9,15 +9,15 @@ class ApplicationController < ActionController::API
   end
 
   def unauthorized
-    render json: { error: "Please log in or sign up to continue." }, status: :unauthorized
+    render json: { error: ["Please log in or sign up to continue."] }, status: :unauthorized
   end
 
   def not_found(obj)
-    render json: { error: "There is no such #{obj} in the database!" }, status: :not_found
+    render json: { error: ["There is no such #{obj} in the database!"] }, status: :not_found
   end
 
   def invalid_response(invalid)
-    render json: { errors: invalid.record.errors.full_messages }, status: :unprocessable_entity
+    render json: { error: invalid.record.errors.full_messages }, status: :unprocessable_entity
   end
 
 end

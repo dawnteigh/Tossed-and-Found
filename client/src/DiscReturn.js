@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react'
 import { UserContext } from './context/user'
 
 const DiscReturn = ({ setActiveIndex }) => {
-  const { msgForm, setMsgForm } = useContext(UserContext)
+  const { msgForm, setMsgForm, setOpen, setErrorMessages } = useContext(UserContext)
   const [search, setSearch] = useState("")
   const [foundDisc, setFoundDisc] = useState(false)
 
@@ -18,8 +18,15 @@ const DiscReturn = ({ setActiveIndex }) => {
       })
     })
     .then(r => r.json())
-    .then(data => setFoundDisc(data))
-    setSearch("")
+    .then(data => {
+      if (data.error) {
+        setErrorMessages(data.error)
+        setOpen(true)
+      } else {
+      setFoundDisc(data)
+      setSearch("")
+      }
+    })
   }
 
   const handleMsg = () => {

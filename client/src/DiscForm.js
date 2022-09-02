@@ -1,6 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
+import { UserContext } from './context/user'
 
-const DisdForm = ({ handleAddDisc }) => {
+const DiscForm = ({ handleAddDisc }) => {
+
   const [dForm, setDForm] = useState({
     make: "",
     model: "",
@@ -9,6 +11,8 @@ const DisdForm = ({ handleAddDisc }) => {
     weight: "",
     img: ""
   })
+
+  const { setOpen, setErrorMessages } = useContext(UserContext)
 
   const handleChange = (e) => {
     const key = e.target.id
@@ -36,16 +40,21 @@ const DisdForm = ({ handleAddDisc }) => {
       })
     })
     .then(r => r.json())
-    .then(d => { 
-      handleAddDisc(d)
-      setDForm({
-        make: "",
-        model: "",
-        type: "",
-        color: "",
-        weight: "",
-        img: ""
-      })
+    .then(d => {
+      if (d.error) {
+        setErrorMessages(d.error)
+        setOpen(true)
+    } else {
+        handleAddDisc(d)
+        setDForm({
+          make: "",
+          model: "",
+          type: "",
+          color: "",
+          weight: "",
+          img: ""
+        })
+      }
     })
   }
 
@@ -108,4 +117,4 @@ const DisdForm = ({ handleAddDisc }) => {
   )
 }
 
-export default DisdForm
+export default DiscForm

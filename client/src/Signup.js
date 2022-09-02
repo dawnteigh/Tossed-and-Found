@@ -3,15 +3,13 @@ import { UserContext } from './context/user'
 
 const Signup = () => {
 
-  const { login } = useContext(UserContext);
+  const { login, setOpen, setErrorMessages } = useContext(UserContext);
 
   const [signup, setSignup] = useState({
     username: "",
     password: "",
     password_confirmation: ""
   })
-
-  const [errors, setErrors] = useState([])
 
   const handleChange = (e) => {
     const key = e.target.id
@@ -37,13 +35,12 @@ const Signup = () => {
     })
     .then(r => r.json())
     .then(user => {
-      if (!user.errors) {
-      login(user)
+      if (user.error) {
+        setErrorMessages(user.error)
+        setOpen(true)
       } else {
-        const errorLis = user.errors.map(e => <li>{e}</li>)
-        setErrors(errorLis)
-        e.target.reset()
-      }
+          login(user)
+        }
     })
   }
 
@@ -77,9 +74,6 @@ const Signup = () => {
         <input type="submit" />
       </form>
       <br/><br/>
-      <ul>
-        {errors}
-      </ul>
     </div>
   )
 }

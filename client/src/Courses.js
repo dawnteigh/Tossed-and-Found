@@ -1,16 +1,25 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import Course from './Course'
 import CourseForm from './CourseForm'
 import { Card } from 'semantic-ui-react'
+import { UserContext } from './context/user'
 
 const Courses = () => {
 
   const [courses, setCourses] = useState([])
 
+  const { setOpen, setErrorMessages } = useContext(UserContext)
+
   useEffect(() => {
     fetch('/courses')
     .then(r => r.json())
-    .then(data => setCourses(data))
+    .then(data => {
+      if (data.error) {
+        setErrorMessages(data.error)
+        setOpen(true)
+    } else {
+      setCourses(data)
+    }})
   }, [])
 
   const displayCourses = courses.map(c => {

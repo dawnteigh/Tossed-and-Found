@@ -5,7 +5,7 @@ import { Container } from 'semantic-ui-react'
 
 const ScoreCard = () => {
 
-  const { selectedCourse, history, user } = useContext(UserContext)
+  const { selectedCourse, history, user, setOpen, setErrorMessages } = useContext(UserContext)
   const { id, name, holes } = selectedCourse
   const [holesArray, setHolesArray] = useState([])
   const [par, setPar] = useState(0)
@@ -42,7 +42,14 @@ const ScoreCard = () => {
       })
     })
     .then(r => r.json())
-    .then(() => history.push('/'))
+    .then(r => {
+      if (r.error) {
+        setErrorMessages(r.error)
+        setOpen(true)
+      } else {
+          history.push('/')
+        }
+    })
   }
 
   return (

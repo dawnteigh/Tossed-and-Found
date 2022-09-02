@@ -4,7 +4,7 @@ import TextareaAutosize from 'react-textarea-autosize';
 
 const MessageForm = ({ handleAddMessage }) => {
 
-  const { msgForm, setMsgForm } = useContext(UserContext);
+  const { msgForm, setMsgForm, setOpen, setErrorMessages } = useContext(UserContext);
 
   const handleChange = (e) => {
     const key = e.target.id
@@ -29,13 +29,18 @@ const MessageForm = ({ handleAddMessage }) => {
       })
     })
     .then(r => r.json())
-    .then(msg => { 
-      handleAddMessage(msg)
-      setMsgForm({
-        subject: "",
-        to: "",
-        body: ""
-      })
+    .then(msg => {
+      if (msg.error) {
+        setErrorMessages(msg.error)
+        setOpen(true)
+      } else {
+          handleAddMessage(msg)
+          setMsgForm({
+            subject: "",
+            to: "",
+            body: ""
+          })
+        }
     })
   }
 

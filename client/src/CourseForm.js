@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
+import { UserContext } from './context/user'
 
 const CourseForm = ({ handleAddCourse }) => {
 
@@ -7,6 +8,8 @@ const CourseForm = ({ handleAddCourse }) => {
     location: "",
     holes: ""
   })
+
+  const { setOpen, setErrorMessages } = useContext(UserContext)
 
   const handleChange = (e) => {
     const key = e.target.id
@@ -31,14 +34,19 @@ const CourseForm = ({ handleAddCourse }) => {
       })
     })
     .then(r => r.json())
-    .then(c => { 
+    .then(c => {
+      if (c.error) {
+          setErrorMessages(c.error)
+          setOpen(true)
+      } else { 
       handleAddCourse(c)
       setCForm({
         name: "",
         location: "",
         holes: ""
       })
-    })
+    }
+  })
   }
 
   return (

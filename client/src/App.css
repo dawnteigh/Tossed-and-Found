@@ -91,4 +91,8 @@ input[type=checkbox] {
   position: absolute;
 }
 
+ul {
+  list-style-position: inside;
+}
+
 

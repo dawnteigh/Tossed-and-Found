@@ -13,6 +13,8 @@ function UserProvider({ children }) {
     to: "",
     body: ""
   })
+  const [open, setOpen] = useState(false)
+  const [errorMessages, setErrorMessages] = useState([])
 
   const history = useHistory();
 
@@ -49,7 +51,24 @@ function UserProvider({ children }) {
   }
 
   return (
-  <UserContext.Provider value={{ user, setUser, loggedIn, setLoggedIn, msgForm, setMsgForm, selectedCourse, setSelectedCourse, login, logout, history }}>
+  <UserContext.Provider
+  value={{ 
+    user,
+    setUser,
+    loggedIn,
+    setLoggedIn,
+    msgForm,
+    setMsgForm,
+    open,
+    setOpen,
+    errorMessages,
+    setErrorMessages,
+    selectedCourse,
+    setSelectedCourse,
+    login,
+    logout,
+    history
+    }}>
     {children}
   </UserContext.Provider>
   )

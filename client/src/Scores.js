@@ -1,23 +1,40 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { Item } from 'semantic-ui-react'
 import Moment from 'moment'
+import { UserContext } from './context/user'
 
 const Scores = () => {
 
-  const [scores, setScores] = useState([]);
+  const [scores, setScores] = useState([])
+  const { setOpen, setErrorMessages } = useContext(UserContext)
 
   useEffect(() => {
     fetch('/scores')
     .then(r => r.json())
-    .then(s => setScores(s))
+    .then(s => {
+      if (s.error) {
+        setErrorMessages(s.error)
+        setOpen(true)
+      } else {
+          setScores(s)
+        }
+    })
   }, [])
 
   const handleDelete = (e) => {
     fetch(`/scores/${e.target.id}`, {
       method: "DELETE"
     })
-    const updatedScores = scores.filter(s => s.id !== parseInt(e.target.id))
-    setScores(updatedScores)
+    .then(r => r.json())
+    .then(r => {
+      if (r.error) {
+        setErrorMessages(r.error)
+        setOpen(true)
+      } else {
+          const updatedScores = scores.filter(s => s.id !== parseInt(e.target.id))
+          setScores(updatedScores)
+        }
+    })
   }
 
   const displayScores = scores.map(s => {

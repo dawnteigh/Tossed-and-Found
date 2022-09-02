@@ -1,16 +1,24 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import Disc from './Disc'
 import DiscForm from './DiscForm'
 import { Card, Divider } from 'semantic-ui-react'
+import { UserContext } from './context/user'
 
 const Discs = () => {
 
   const [discs, setDiscs] = useState([])
+  const { setOpen, setErrorMessages } = useContext(UserContext)
 
   useEffect(() => {
     fetch('/discs')
     .then(r => r.json())
-    .then(data => setDiscs(data))
+    .then(data => {
+      if (data.error) {
+        setErrorMessages(data.error)
+        setOpen(true)
+      }
+    setDiscs(data)
+    })
   }, [])
   
   const handleAddDisc = (d) => {

@@ -5,13 +5,20 @@ import { Comment, Container, Divider } from 'semantic-ui-react'
 import { UserContext } from './context/user'
 
 const Messages = () => {
-  const { user, msgForm, setMsgForm } = useContext(UserContext)
+  const { user, msgForm, setMsgForm, setOpen, setErrorMessages } = useContext(UserContext)
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
     fetch("/messages")
     .then(r => r.json())
-    .then(data => setMessages(data))
+    .then(data => {
+      if (data.error) {
+        setErrorMessages(data.error)
+        setOpen(true)
+      } else {
+          setMessages(data)
+        }
+    })
   }, [])
 
   const displayMessages = messages.map(m => {
