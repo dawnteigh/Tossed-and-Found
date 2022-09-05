@@ -1,10 +1,7 @@
 class Disc < ApplicationRecord
   belongs_to :user
-  validates :make, presence: true
-  validates :model, presence: true
-  validates :disc_type, presence: true
-  validates :color, presence: true
-  validates :weight, presence: true, numericality: true, length: { maximum: 3 }
+  validates_presence_of :make, :model, :disc_type, :color, :weight
+  validates :weight, numericality: true, length: { maximum: 3 }
 
   before_save :default_img
 

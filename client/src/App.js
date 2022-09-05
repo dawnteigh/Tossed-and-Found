@@ -16,9 +16,9 @@ function App() {
   
   const { open, setOpen, errorMessages } = useContext(UserContext)
 
-  const displayErrors = errorMessages.map(e => {
+  const displayErrors = errorMessages.map((e, i) => {
     return (
-      <li>{e}</li>
+      <li key={i} >{e}</li>
     )
   })
 

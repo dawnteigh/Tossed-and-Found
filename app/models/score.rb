@@ -1,6 +1,6 @@
 class Score < ApplicationRecord
   belongs_to :user
   belongs_to :course
-  validates :strokes, presence: true, numericality: true
-  validates :par, presence: true, numericality: true
+  validates_presence_of :strokes, :par
+  validates_numericality_of :strokes, :par
 end

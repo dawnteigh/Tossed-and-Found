@@ -26,7 +26,7 @@ const Course = ({ course }) => {
       }
     }
     return (
-      <Table.Row>
+      <Table.Row key={s.id} >
         <Table.Cell>{s.player}</Table.Cell>
         <Table.Cell>{s.strokes}</Table.Cell>
         <Table.Cell>{modifiedScore(score)}</Table.Cell>
