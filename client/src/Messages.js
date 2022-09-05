@@ -7,6 +7,7 @@ import { UserContext } from './context/user'
 const Messages = () => {
   const { user, msgForm, setMsgForm, setOpen, setErrorMessages } = useContext(UserContext)
   const [messages, setMessages] = useState([]);
+  const [filter, setFilter] = useState("")
 
   useEffect(() => {
     fetch("/messages")
@@ -21,7 +22,8 @@ const Messages = () => {
     })
   }, [])
 
-  const displayMessages = messages.map(m => {
+  const filteredMessages = messages.filter(m => (m.subject + " " + m.body + " " + m.to + " " + m.user.username).toLowerCase().includes(filter.toLowerCase()))
+  const displayMessages = filteredMessages.map(m => {
     return (
     <Comment
       key={m.id}
@@ -59,6 +61,7 @@ const Messages = () => {
 
   return (
     <Container>
+      <input type="text" value={filter} onChange={(e) => setFilter(e.target.value)} placeholder="Search messages" />
       <Comment.Group>
         {displayMessages}
       </Comment.Group>
