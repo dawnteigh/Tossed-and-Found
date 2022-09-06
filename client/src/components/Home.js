@@ -7,7 +7,7 @@ import DiscReturn from '../components/DiscReturn';
 import { Accordion, Container, Grid, Icon, Image } from 'semantic-ui-react'
 
 const Home = () => {
-  const { user, loggedIn } = useContext(UserContext);
+  const { loggedIn } = useContext(UserContext);
   const [activeIndex, setActiveIndex] = useState("0");
 
   const randomImg = dataArrays.imgs[Math.floor(Math.random() * dataArrays.imgs.length)];
@@ -15,10 +15,10 @@ const Home = () => {
   if (!loggedIn) {
     return (
       <Container className="home">
-        <h3>Welcome to Tossed and Found, your new disc golfing companion!<br/>
+        <h3>Welcome to Tossed & Found, your new disc golfing companion!<br/>
         Please log in or sign up to get started.</h3>
         <br/>
-        <Image circular centered size="large" src={randomImg} />
+        <Image circular centered size="large" src={randomImg} alt="Tossed and Found" />
       </Container>
     )
   }
@@ -33,7 +33,9 @@ const Home = () => {
 
   return (
     <Grid centered>
-      <div className="home" >
+      <br/>
+      <div className="home">
+        <br/>
         <Accordion styled >
           <Accordion.Title
             active={activeIndex === "0"}

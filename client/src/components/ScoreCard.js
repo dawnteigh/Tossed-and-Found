@@ -61,6 +61,7 @@ const ScoreCard = () => {
     <div>
       <h3>Currently playing at: {name}</h3><br/>
       <b>Par:</b> {par} <b>Strokes:</b> {strokes}
+      <br/><br/>
       <Card.Group id="formGrid" itemsPerRow={3} >
         {scoreForms}
       </Card.Group>

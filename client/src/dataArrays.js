@@ -16,6 +16,6 @@ export const dataArrays = {
     "Welcome, ",
     "Thanks for logging in, ",
     "Hello, ",
-    "How's it hanging, "
+    "Hope you're doing well, "
   ]
 }

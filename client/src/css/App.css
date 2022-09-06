@@ -3,7 +3,8 @@
 }
 
 .home {
-  margin-top: 2%;
+  overflow: auto;
+  height: 75vh;
 }
 
 .logo {

@@ -53,7 +53,7 @@ const DiscReturn = ({ setActiveIndex }) => {
       <br/>
       {foundDisc ? 
       <div>
-        <img src={foundDisc.img} width="200px" height="auto" /><br/>
+        <img src={foundDisc.img} alt="Disc associated with given ID" width="200px" height="auto" /><br/>
         <b>{foundDisc.color} {foundDisc.make} {foundDisc.model}</b><br/>
         This disc belongs to {foundDisc.user.username}. Send them a message to let them know you've found it!
         <br/>
