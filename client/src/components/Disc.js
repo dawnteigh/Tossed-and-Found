@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { Card, Image } from 'semantic-ui-react'
-import { UserContext } from './context/user'
+import { UserContext } from '../context/user'
 
 const Disc = ({ disc, handleRemoveDisc, handleUpdateDisc }) => {
 

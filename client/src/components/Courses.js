@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react'
-import Course from './Course'
-import CourseForm from './CourseForm'
+import Course from '../components/Course'
+import CourseForm from '../components/CourseForm'
 import { Card } from 'semantic-ui-react'
-import { UserContext } from './context/user'
+import { UserContext } from '../context/user'
 
 const Courses = () => {
 

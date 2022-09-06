@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react'
-import Disc from './Disc'
-import DiscForm from './DiscForm'
+import Disc from '../components/Disc'
+import DiscForm from '../components/DiscForm'
 import { Card, Divider } from 'semantic-ui-react'
-import { UserContext } from './context/user'
+import { UserContext } from '../context/user'
 
 const Discs = () => {
 

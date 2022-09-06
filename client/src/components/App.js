@@ -1,16 +1,16 @@
-import './App.css';
+import '../css/App.css';
 import React, { useContext } from 'react'
 import { Switch, Route } from "react-router-dom"
 import { Button, Header, Icon, Modal } from 'semantic-ui-react'
-import TossedAndFound from "./TossedAndFound.png"
-import Signup from './Signup';
-import Login from './Login';
-import Home from './Home';
-import NavBar from './NavBar';
-import Discs from './Discs';
-import ScoreCard from './ScoreCard';
-import Courses from './Courses';
-import { UserContext } from './context/user';
+import TossedAndFound from "../TossedAndFound.png"
+import Signup from '../components/Signup';
+import Login from '../components/Login';
+import Home from '../components/Home';
+import NavBar from '../components/NavBar';
+import Discs from '../components/Discs';
+import ScoreCard from '../components/ScoreCard';
+import Courses from '../components/Courses';
+import { UserContext } from '../context/user';
 
 function App() {
   

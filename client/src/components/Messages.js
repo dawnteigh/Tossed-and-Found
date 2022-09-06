@@ -1,8 +1,8 @@
 import React, { useContext, useState, useEffect } from 'react'
-import MessageForm from './MessageForm'
+import MessageForm from '../components/MessageForm'
 import Moment from 'moment'
 import { Comment, Container, Divider } from 'semantic-ui-react'
-import { UserContext } from './context/user'
+import { UserContext } from '../context/user'
 
 const Messages = () => {
   const { user, msgForm, setMsgForm, setOpen, setErrorMessages } = useContext(UserContext)

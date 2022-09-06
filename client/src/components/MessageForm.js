@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { UserContext } from './context/user'
+import { UserContext } from '../context/user'
 import TextareaAutosize from 'react-textarea-autosize';
 
 const MessageForm = ({ handleAddMessage }) => {

@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { UserContext } from './context/user'
-import ScoreForm from './ScoreForm'
+import { UserContext } from '../context/user'
+import ScoreForm from '../components/ScoreForm'
 import { Card } from 'semantic-ui-react'
 
 const ScoreCard = () => {

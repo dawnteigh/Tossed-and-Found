@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import 'semantic-ui-css/semantic.min.css'
 import { BrowserRouter } from 'react-router-dom';
 import { UserProvider } from './context/user';
-import './index.css';
-import App from './App';
+import './css/index.css';
+import App from './components/App';
 
 ReactDOM.render(
   <React.StrictMode>

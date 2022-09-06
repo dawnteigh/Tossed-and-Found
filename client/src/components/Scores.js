@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { Item } from 'semantic-ui-react'
 import Moment from 'moment'
-import { UserContext } from './context/user'
+import { UserContext } from '../context/user'
 
 const Scores = () => {
 
@@ -59,7 +59,7 @@ const Scores = () => {
 
   return (
     <Item.Group divided>
-      {displayScores}
+      {scores.length === 0 ? "You have no scores to scores to speak of. Get out there and play!" : displayScores}
     </Item.Group>
   )
 }

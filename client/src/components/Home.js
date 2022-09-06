@@ -1,17 +1,25 @@
 import React, { useContext, useState } from 'react'
-import { UserContext } from './context/user';
-import Messages from './Messages';
-import Scores from './Scores';
-import DiscReturn from './DiscReturn';
-import { Accordion, Grid, Icon } from 'semantic-ui-react'
+import { dataArrays } from '../dataArrays';
+import { UserContext } from '../context/user';
+import Messages from '../components/Messages';
+import Scores from '../components/Scores';
+import DiscReturn from '../components/DiscReturn';
+import { Accordion, Container, Grid, Icon, Image } from 'semantic-ui-react'
+
 const Home = () => {
   const { user, loggedIn } = useContext(UserContext);
   const [activeIndex, setActiveIndex] = useState("0");
- 
+
+  const randomImg = dataArrays.imgs[Math.floor(Math.random() * dataArrays.imgs.length)];
 
   if (!loggedIn) {
     return (
-      <h3>Log in, bro</h3>
+      <Container className="home">
+        <h3>Welcome to Tossed and Found, your new disc golfing companion!<br/>
+        Please log in or sign up to get started.</h3>
+        <br/>
+        <Image circular centered size="large" src={randomImg} />
+      </Container>
     )
   }
 
@@ -25,8 +33,7 @@ const Home = () => {
 
   return (
     <Grid centered>
-      <div id="home" >
-        Hey, {user.username}!<br/>
+      <div className="home" >
         <Accordion styled >
           <Accordion.Title
             active={activeIndex === "0"}

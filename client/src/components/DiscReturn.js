@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react'
-import { UserContext } from './context/user'
+import { UserContext } from '../context/user'
 
 const DiscReturn = ({ setActiveIndex }) => {
   const { msgForm, setMsgForm, setOpen, setErrorMessages } = useContext(UserContext)
@@ -14,7 +14,7 @@ const DiscReturn = ({ setActiveIndex }) => {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        key: search
+        key: search.toLowerCase()
       })
     })
     .then(r => r.json())

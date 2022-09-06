@@ -1,14 +1,16 @@
 import React, { useContext } from 'react'
-import { UserContext } from './context/user';
+import { UserContext } from '../context/user';
+import { dataArrays } from '../dataArrays';
 import { NavLink } from "react-router-dom";
 
 
 const NavBar = () => {
-  const { loggedIn, logout } = useContext(UserContext);
+  const { loggedIn, logout, user } = useContext(UserContext);
+  const randomGreeting = dataArrays.greetings[Math.floor(Math.random() * dataArrays.greetings.length)];
 
  if (!loggedIn) {
   return (
-    <div>
+    <div className='navBar'>
       <NavLink
         className="navTab"
         to="/login"
@@ -27,7 +29,8 @@ const NavBar = () => {
   )
  }
   return (
-    <div>
+    <div className='navBar'>
+      <span className="greeting">{randomGreeting}<b>{user.username}!</b></span>
       <NavLink
         className="navTab"
         to="/"
