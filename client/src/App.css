@@ -76,6 +76,8 @@ input[type=checkbox] {
 }
 
 #formGrid {
+  margin-left: 25%;
+  margin-right: 25%;
   overflow: auto;
   height: 60vh;
 }

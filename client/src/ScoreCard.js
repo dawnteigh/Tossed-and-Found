@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { UserContext } from './context/user'
 import ScoreForm from './ScoreForm'
-import { Container } from 'semantic-ui-react'
+import { Card } from 'semantic-ui-react'
 
 const ScoreCard = () => {
 
@@ -21,8 +21,13 @@ const ScoreCard = () => {
   }, [])
 
   const tally = (p, s) => {
-    setPar(par + p)
-    setStrokes(strokes + s)
+    if (Number.isInteger(p, s)) {
+      setPar(par + p)
+      setStrokes(strokes + s)
+    } else {
+        setErrorMessages(["Par must be an integer", "Strokes must be an integer"])
+        setOpen(true)
+      }
   }
 
   const scoreForms = holesArray.map(h => <ScoreForm key={h} hole={h} tally={tally} />)
@@ -56,9 +61,9 @@ const ScoreCard = () => {
     <div>
       <h3>Currently playing at: {name}</h3><br/>
       <b>Par:</b> {par} <b>Strokes:</b> {strokes}
-      <Container id="formGrid">
+      <Card.Group id="formGrid" itemsPerRow={3} >
         {scoreForms}
-      </Container>
+      </Card.Group>
         <br/>
       <form onSubmit={handleSubmit}>
         <input type="submit" value="Finished!" />
