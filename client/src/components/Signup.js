@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react'
 import { UserContext } from '../context/user'
+import { Button, Form } from 'semantic-ui-react';
 
 const Signup = () => {
 
@@ -45,38 +46,34 @@ const Signup = () => {
   }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <label><b>Username:</b></label>
-        <br/>
-        <input
-          type="text"
-          id="username"
-          value={signup.username}
-          onChange={handleChange}
+    <div className="userForm">
+      <Form onSubmit={handleSubmit}>
+      <Form.Input
+        type="text"
+        label="Username" 
+        placeholder="Username"
+        id="username"
+        value={signup.username}
+        onChange={handleChange}
         />
-        <br/>
-        <label><b>Password:</b></label>
-        <br/>
-        <input
-          type="password"
-          id="password"
-          value={signup.password}
-          onChange={handleChange}
-        />
-        <br/>
-        <label><b>Confirm Password:</b></label>
-        <br/>
-        <input
-          type="password"
-          id="password_confirmation"
-          value={signup.password_confirmation}
-          onChange={handleChange}
-        />
-        <br/>
-        <input type="submit" />
-      </form>
-      <br/><br/>
+      <Form.Input
+        type="password"
+        label="Password" 
+        placeholder="Password"
+        id="password"
+        value={signup.password}
+        onChange={handleChange}
+      />
+      <Form.Input
+        type="password"
+        label="Confirm Password" 
+        placeholder="Confirm Password"
+        id="password_confirmation"
+        value={signup.password_confirmation}
+        onChange={handleChange}
+      />
+      <Button type='submit'>Submit</Button>
+      </Form>
     </div>
   )
 }

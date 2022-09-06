@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react'
+import { Button, Form } from 'semantic-ui-react';
 import { UserContext } from '../context/user'
 
 const Login = () => {
@@ -30,29 +31,26 @@ const Login = () => {
   }
   
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <label><b>Username:</b></label>
-        <br/>
-        <input
-          type="text"
-          id="username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
+    <div className="userForm">
+      <Form onSubmit={handleSubmit}>
+      <Form.Input
+        type="text"
+        label="Username" 
+        placeholder="Username"
+        id="username"
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
         />
-        <br/>
-        <label><b>Password:</b></label>
-        <br/>
-        <input
-          type="password"
-          id="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <br/>
-        <input type="submit" />
-        </form>
-        <br/>
+      <Form.Input
+        type="password"
+        label="Password" 
+        placeholder="Password"
+        id="password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+      />
+      <Button type='submit'>Submit</Button>
+      </Form>
     </div>
   )
 }

@@ -7,6 +7,12 @@
   height: 75vh;
 }
 
+.userForm {
+  text-align: left;
+  margin-left: 30%;
+  margin-right: 30%;
+}
+
 .logo {
   width: 25%;
   height: auto;
