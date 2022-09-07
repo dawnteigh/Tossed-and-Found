@@ -41,7 +41,7 @@ const Course = ({ course }) => {
         <Card.Meta>{location} | {holes} holes</Card.Meta>
         <Card.Description>
           <b>Top 3 Scores</b><br/>
-          <Table singleLine>
+          <Table singleLine unstackable>
             <Table.Header>
               <Table.Row>
                 <Table.HeaderCell>Player</Table.HeaderCell>

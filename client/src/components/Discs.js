@@ -46,7 +46,7 @@ const Discs = () => {
   return (
     <>
       <h2>Your Discography</h2>
-      <Card.Group itemsPerRow={3} id="discGrid">
+      <Card.Group stackable itemsPerRow={3} id="discGrid">
         {displayDiscs}
       </Card.Group>
       <Divider />

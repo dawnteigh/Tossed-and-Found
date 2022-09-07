@@ -74,11 +74,11 @@ const ScoreForm = ({ hole, tally, count, setCount }) => {
       </Card.Content>
       <Card.Content extra>
         <div className='ui two buttons'>
-          <Button id='record' basic color='green' onClick={handleClick} disabled={ icon.color === 'green' ? true : false } >
-            Record
+          <Button icon id='record' compact color='green' onClick={handleClick} disabled={ icon.color === 'green' ? true : false } >
+            <Icon name='plus' />
           </Button>
-          <Button id='undo' basic color='red' onClick={handleClick} disabled={ icon.color === 'red' ? true : false } >
-            Undo
+          <Button icon id='undo' compact color='red' onClick={handleClick} disabled={ icon.color === 'red' ? true : false } >
+            <Icon name='minus' />
           </Button>
         </div>
       </Card.Content>
