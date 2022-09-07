@@ -28,12 +28,12 @@ const Messages = () => {
     <Comment
       key={m.id}
       className="message"
-      style={ m.user.username === user.username ? { background: "rgba(255, 140, 0, 0.325)"} : null }
+      style={ m.user.username === user.username ? { background: "rgba(255, 140, 0, 0.325)" } : null }
     >
       <Comment.Content>
         <Comment.Author as="a">{m.user.username === user.username ? "me" : m.user.username}</Comment.Author>
         <Comment.Metadata>
-          <div>to: { m.to === user.username ? "me" : m.to } | {Moment(m.created_at).format('MMMM DD,  LT')}</div>
+          <div>to: { m.to === user.username ? "me" : m.to } | {Moment(m.created_at).format('MMMM DD,  LT') }</div>
         </Comment.Metadata>
         <Divider fitted />
         <Comment.Text>
@@ -43,12 +43,12 @@ const Messages = () => {
         <Comment.Actions>
         {m.user.username === user.username ? null :
           <Comment.Action onClick={() =>
-                setMsgForm({
-                  ...msgForm,
-                  subject: m.subject,
-                  to: m.user.username
-                })
-              } >Reply</Comment.Action>}
+            setMsgForm({
+              ...msgForm,
+              subject: m.subject,
+              to: m.user.username
+              })
+            } >Reply</Comment.Action>}
         </Comment.Actions>
       </Comment.Content>
     </Comment>
@@ -61,7 +61,7 @@ const Messages = () => {
 
   return (
     <Container>
-      <input type="text" value={filter} onChange={(e) => setFilter(e.target.value)} placeholder="Search messages" />
+      <input type="text" size="35" value={filter} onChange={(e) => setFilter(e.target.value)} placeholder="Search messages" />
       <Comment.Group>
         {displayMessages}
       </Comment.Group>

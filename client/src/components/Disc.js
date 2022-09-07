@@ -39,7 +39,7 @@ const Disc = ({ disc, handleRemoveDisc, handleUpdateDisc }) => {
 
 
   return (
-    <Card>
+    <Card raised>
     <Image size="medium" src={img} />
     <Card.Content>
       <Card.Header>{make} {model}</Card.Header>
