@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Button, Card, Icon } from 'semantic-ui-react'
 
-const ScoreForm = ({ hole, tally }) => {
+const ScoreForm = ({ hole, tally, count, setCount }) => {
 
   const [score, setScore] = useState({
     par: "",
@@ -32,6 +32,7 @@ const ScoreForm = ({ hole, tally }) => {
         img: 'check circle outline',
         color: 'green'
       }) 
+      setCount(count + 1)
     }
     else if (e.target.id === 'undo') {
       tally(-score.par, -score.strokes)
@@ -39,6 +40,7 @@ const ScoreForm = ({ hole, tally }) => {
         img: 'circle outline',
         color: 'red'
       })
+      setCount(count - 1)
     }
   }
 

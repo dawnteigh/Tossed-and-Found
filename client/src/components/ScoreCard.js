@@ -10,6 +10,7 @@ const ScoreCard = () => {
   const [holesArray, setHolesArray] = useState([])
   const [par, setPar] = useState(0)
   const [strokes, setStrokes] = useState(0)
+  const [holeCount, setHoleCount] = useState(0)
   
   
   useEffect(() => {
@@ -30,31 +31,36 @@ const ScoreCard = () => {
       }
   }
 
-  const scoreForms = holesArray.map(h => <ScoreForm key={h} hole={h} tally={tally} />)
+  const scoreForms = holesArray.map(h => <ScoreForm key={h} hole={h} tally={tally} count={holeCount} setCount={setHoleCount} />)
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    fetch('/scores', {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        course_id: id,
-        par: par,
-        strokes: strokes,
-        player: user.username
+    if (holeCount < holes) {
+      setErrorMessages(["Your scorecard is incomplete! Go back and make sure each hole has a recorded score."])
+      setOpen(true)
+    } else {
+      fetch('/scores', {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          course_id: id,
+          par: par,
+          strokes: strokes,
+          player: user.username
+        })
       })
-    })
-    .then(r => r.json())
-    .then(r => {
-      if (r.error) {
-        setErrorMessages(r.error)
-        setOpen(true)
-      } else {
-          history.push('/')
-        }
-    })
+      .then(r => r.json())
+      .then(r => {
+        if (r.error) {
+          setErrorMessages(r.error)
+          setOpen(true)
+        } else {
+            history.push('/')
+          }
+      })
+    }
   }
 
   return (
