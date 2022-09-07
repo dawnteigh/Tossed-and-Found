@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import { Button, Form } from 'semantic-ui-react';
+import { Form } from 'semantic-ui-react';
 import { UserContext } from '../context/user'
 
 const Login = () => {
@@ -49,7 +49,7 @@ const Login = () => {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
-      <Button type='submit'>Submit</Button>
+      <Form.Button>Submit</Form.Button>
       </Form>
     </div>
   )

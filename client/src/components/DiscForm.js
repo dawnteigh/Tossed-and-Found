@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react'
 import { UserContext } from '../context/user'
+import { Form } from 'semantic-ui-react'
 
 const DiscForm = ({ handleAddDisc }) => {
 
@@ -59,10 +60,39 @@ const DiscForm = ({ handleAddDisc }) => {
   }
 
   return (
-    <div>
+    <div id="discForm">
       Add new disc:
       <br/>
-      <form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit}>
+        <Form.Group widths='equal'>
+          <Form.Field id="make" value={dForm.make} placeholder='Make' control='input'  onChange={handleChange} />
+          <Form.Field id="model" value={dForm.model} placeholder='Model' control='input'  onChange={handleChange} />
+          <Form.Field id="color" value={dForm.color} placeholder='Color' control='input'  onChange={handleChange} />
+          </Form.Group>
+          <Form.Group widths='equal'>
+          <Form.Field id="type" value={dForm.type} control='select' onChange={handleChange} >
+            <option value="">Select disc type</option>
+            <option value="Distance Driver">Distance Driver</option>
+            <option value="Fairway Driver">Fairway Driver</option>
+            <option value="Control Driver">Control Driver</option>
+            <option value="Midrange">Midrange</option>
+            <option value="Putter">Putter</option>
+          </Form.Field>
+          <Form.Field id="weight" value={dForm.weight} placeholder='Weight in Grams' control='input'  onChange={handleChange} />
+          <Form.Field id="img" value={dForm.img} placeholder='Image URL (Optional)' control='input'  onChange={handleChange} />
+          </Form.Group>
+          <input type="submit" />
+      </Form>
+      {/* <form onSubmit={handleSubmit}>
+        <select id="type" onChange={handleChange} value={dForm.type} >
+          <option value="">Select disc type</option>
+          <option value="Distance Driver">Distance Driver</option>
+          <option value="Fairway Driver">Fairway Driver</option>
+          <option value="Control Driver">Control Driver</option>
+          <option value="Midrange">Midrange</option>
+          <option value="Putter">Putter</option>
+        </select>
+        <br/>
         <input
           type="text"
           id="make"
@@ -76,14 +106,6 @@ const DiscForm = ({ handleAddDisc }) => {
           id="model"
           value={dForm.model}
           placeholder="Model"
-          onChange={handleChange}
-        />
-        <br/>
-        <input
-          type="text"
-          id="type"
-          value={dForm.type}
-          placeholder="Type of disc"
           onChange={handleChange}
         />
         <br/>
@@ -112,7 +134,7 @@ const DiscForm = ({ handleAddDisc }) => {
         />
         <br/>
         <input type="submit" />
-      </form>
+      </form> */}
     </div>
   )
 }

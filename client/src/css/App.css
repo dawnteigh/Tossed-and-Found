@@ -57,10 +57,29 @@
   border-radius: 50%;
 }
 
+button, input[type=submit] {
+  border: 0px;
+  border-radius: 20px;
+  background-color: rgb(255, 140, 0);
+  text-decoration: none;
+  color: white;
+  padding: .5em 1.25em;
+  margin: .5em;
+}
+
 button:hover, input[type=submit]:hover {
   background: rgb(210, 209, 208);
   color: rgb(255, 140, 0);
   cursor: pointer;
+}
+
+input[type=text] {
+  border-radius: 5px;
+  width: 50%;
+}
+
+textarea {
+  width: 50%;
 }
 
 .logout {
@@ -77,12 +96,6 @@ button:hover, input[type=submit]:hover {
   color: white;
 }
 
-button, input[type=submit] {
-  border: none;
-  background: rgb(255, 140, 0);
-  text-decoration: none;
-  color: white;
-}
 
 input[type=checkbox] {
   background: rgb(255, 140, 0);
@@ -97,6 +110,11 @@ input[type=checkbox] {
   margin-right: 20%;
   overflow: auto;
   height: 60vh;
+}
+
+#discForm {
+  margin-left: 25%;
+  margin-right: 25%
 }
 
 #courseGrid {
@@ -122,6 +140,12 @@ input[type=checkbox] {
   right: 5%;
   bottom: 3%;
   position: absolute;
+  margin: 0px;
+  padding: .25em;
+  border-radius: 0;
+  font-size: .75em;
+  color: rgb(255, 140, 0);
+  background-color: white;
 }
 
 h3 {
@@ -131,6 +155,5 @@ h3 {
 ul {
   list-style-position: inside;
 }
-
 
 

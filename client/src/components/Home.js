@@ -9,6 +9,11 @@ import { Accordion, Container, Grid, Icon, Image } from 'semantic-ui-react'
 const Home = () => {
   const { loggedIn } = useContext(UserContext);
   const [activeIndex, setActiveIndex] = useState("0");
+  const [msgForm, setMsgForm] = useState({
+    subject: "",
+    to: "",
+    body: ""
+  })
 
   const randomImg = dataArrays.imgs[Math.floor(Math.random() * dataArrays.imgs.length)];
 
@@ -46,7 +51,7 @@ const Home = () => {
             Messages
           </Accordion.Title>
           <Accordion.Content active={activeIndex === "0"}>
-            <Messages />
+            <Messages msgForm={msgForm} setMsgForm={setMsgForm} />
           </Accordion.Content>
 
           <Accordion.Title
@@ -70,7 +75,7 @@ const Home = () => {
             Found a disc?
           </Accordion.Title>
           <Accordion.Content active={activeIndex === "2"}>
-            <DiscReturn setActiveIndex={setActiveIndex} />
+            <DiscReturn setActiveIndex={setActiveIndex} msgForm={msgForm} setMsgForm={setMsgForm} />
           </Accordion.Content>
         </Accordion>
       </div>

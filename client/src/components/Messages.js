@@ -1,11 +1,11 @@
 import React, { useContext, useState, useEffect } from 'react'
 import MessageForm from '../components/MessageForm'
 import Moment from 'moment'
-import { Comment, Container, Divider } from 'semantic-ui-react'
+import { Comment, Container, Divider, Input } from 'semantic-ui-react'
 import { UserContext } from '../context/user'
 
-const Messages = () => {
-  const { user, msgForm, setMsgForm, setOpen, setErrorMessages } = useContext(UserContext)
+const Messages = ({ msgForm, setMsgForm }) => {
+  const { user, setOpen, setErrorMessages } = useContext(UserContext)
   const [messages, setMessages] = useState([]);
   const [filter, setFilter] = useState("")
 
@@ -61,12 +61,18 @@ const Messages = () => {
 
   return (
     <Container>
-      <input type="text" size="35" value={filter} onChange={(e) => setFilter(e.target.value)} placeholder="Search messages" />
+      <Input
+        icon='mail'
+        iconPosition='left'
+        value={filter}
+        onChange={(e) => setFilter(e.target.value)}
+        placeholder="Search messages"
+      />
       <Comment.Group>
         {displayMessages}
       </Comment.Group>
       <br/>
-      <MessageForm handleAddMessage={handleAddMessage} />
+      <MessageForm handleAddMessage={handleAddMessage} msgForm={msgForm} setMsgForm={setMsgForm} />
     </Container>
   )
 }

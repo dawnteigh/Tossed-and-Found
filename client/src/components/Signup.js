@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react'
 import { UserContext } from '../context/user'
-import { Button, Form } from 'semantic-ui-react';
+import { Form } from 'semantic-ui-react';
 
 const Signup = () => {
 
@@ -72,7 +72,7 @@ const Signup = () => {
         value={signup.password_confirmation}
         onChange={handleChange}
       />
-      <Button type='submit'>Submit</Button>
+      <Form.Button>Submit</Form.Button>
       </Form>
     </div>
   )

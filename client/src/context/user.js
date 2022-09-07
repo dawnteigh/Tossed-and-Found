@@ -8,11 +8,6 @@ function UserProvider({ children }) {
   const [user, setUser] = useState({})
   const [loggedIn, setLoggedIn] = useState(false)
   const [selectedCourse, setSelectedCourse] = useState(false)
-  const [msgForm, setMsgForm] = useState({
-    subject: "",
-    to: "",
-    body: ""
-  })
   const [open, setOpen] = useState(false)
   const [errorMessages, setErrorMessages] = useState([])
 
@@ -57,8 +52,6 @@ function UserProvider({ children }) {
     setUser,
     loggedIn,
     setLoggedIn,
-    msgForm,
-    setMsgForm,
     open,
     setOpen,
     errorMessages,

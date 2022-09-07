@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react'
 import { UserContext } from '../context/user'
+import { Input } from 'semantic-ui-react'
 
 const CourseForm = ({ handleAddCourse }) => {
 
@@ -54,25 +55,26 @@ const CourseForm = ({ handleAddCourse }) => {
       Add new course:
       <br/>
       <form onSubmit={handleSubmit}>
-        <input
+        <Input
           type="text"
           id="name"
+          label="Name"
           value={cForm.name}
           placeholder="Name of Course"
           onChange={handleChange}
         />
-          <br/>
-          <input
+          <Input
             type="number"
             id="holes"
+            label="Holes"
             value={cForm.holes}
             placeholder="Number of Holes"
             onChange={handleChange}
           />
-        <br/>
-        <input
+        <Input
           type="text"
           id="location"
+          label="Location"
           value={cForm.location}
           placeholder="Location of Course"
           onChange={handleChange}

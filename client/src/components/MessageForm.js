@@ -1,10 +1,11 @@
 import React, { useContext } from 'react'
 import { UserContext } from '../context/user'
 import TextareaAutosize from 'react-textarea-autosize';
+import { Form } from 'semantic-ui-react';
 
-const MessageForm = ({ handleAddMessage }) => {
+const MessageForm = ({ handleAddMessage, msgForm, setMsgForm }) => {
 
-  const { msgForm, setMsgForm, setOpen, setErrorMessages } = useContext(UserContext);
+  const { setOpen, setErrorMessages } = useContext(UserContext);
 
   const handleChange = (e) => {
     const key = e.target.id
@@ -46,6 +47,7 @@ const MessageForm = ({ handleAddMessage }) => {
 
   return (
     <form onSubmit={handleSubmit}>
+      <Form.Group widths="equal">
       <input
         type="text"
         id="subject"
@@ -70,6 +72,7 @@ const MessageForm = ({ handleAddMessage }) => {
         onChange={handleChange}
       />
       <br/>
+      </Form.Group>
       <input type="submit" />
     </form>
   )

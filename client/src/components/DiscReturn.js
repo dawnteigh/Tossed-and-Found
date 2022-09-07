@@ -1,8 +1,8 @@
 import React, { useState, useContext } from 'react'
 import { UserContext } from '../context/user'
 
-const DiscReturn = ({ setActiveIndex }) => {
-  const { msgForm, setMsgForm, setOpen, setErrorMessages } = useContext(UserContext)
+const DiscReturn = ({ setActiveIndex, msgForm, setMsgForm }) => {
+  const { setOpen, setErrorMessages } = useContext(UserContext)
   const [search, setSearch] = useState("")
   const [foundDisc, setFoundDisc] = useState(false)
 
