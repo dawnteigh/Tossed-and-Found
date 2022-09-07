@@ -190,9 +190,9 @@ ul {
   }
 
   .logout {
-    right: 2%;
+    right: 0%;
     top: 1%;
-    width: 16%;
+    width: 17%;
     padding: .5em;
     margin: .25em
   }

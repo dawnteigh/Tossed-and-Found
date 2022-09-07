@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { UserContext } from '../context/user';
 import { dataArrays } from '../dataArrays';
 import { NavLink } from "react-router-dom";
+import { Icon } from 'semantic-ui-react';
 
 
 const NavBar = () => {
@@ -59,7 +60,7 @@ const NavBar = () => {
       >
         Scorecard
       </NavLink>
-      <button className="logout" onClick={logout}>Logout 🡺</button>
+      <button className="logout" onClick={logout}>Logout <Icon name="sign-out" /></button>
     </div>
   )
 }
