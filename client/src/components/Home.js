@@ -8,7 +8,7 @@ import { Accordion, Container, Grid, Icon, Image } from 'semantic-ui-react'
 
 const Home = () => {
   const { loggedIn } = useContext(UserContext);
-  const [activeIndex, setActiveIndex] = useState("0");
+  const [activeIndex, setActiveIndex] = useState("");
   const [msgForm, setMsgForm] = useState({
     subject: "",
     to: "",
