@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::API
   include ActionController::Cookies
   rescue_from ActiveRecord::RecordInvalid, with: :invalid_response
+  rescue_from ActiveRecord::ConnectionNotEstablished, with: :no_database
 
   private
   
@@ -18,6 +19,10 @@ class ApplicationController < ActionController::API
 
   def invalid_response(invalid)
     render json: { error: invalid.record.errors.full_messages }, status: :unprocessable_entity
+  end
+
+  def no_database
+    render json: { error: ["Could not establish connection to database. If you are running the development version, remember to start up Postgres."] }
   end
 
 end

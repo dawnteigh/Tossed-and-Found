@@ -149,6 +149,11 @@ input[type=checkbox] {
   background-color: white;
 }
 
+.delete:hover {
+  color: rgb(210, 209, 208);
+  background-color: white
+}
+
 h3 {
   margin: 0%;
 }
