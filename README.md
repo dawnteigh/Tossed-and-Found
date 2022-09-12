@@ -35,7 +35,12 @@ This will start the back end on http://localhost:3000. And for the front end (ru
 ```shell
 ~your-computer/cool-apps/tossed-and-found$ npm start --prefix client
 ```
-Alternatively, Tossed & Found is deployed [here](https://tossed-and-found.herokuapp.com/) if you want to try it out that way.* You can log in as Tim (password is tim123) to see what everything looks like when it is filled out.<br>*You are free to create an account here, but be aware that this is more of a demo and not the final version, thus I may be wiping the database a few times. If you want your data to be safe, install and run the app locally. 
+Alternatively, Tossed & Found is deployed [here](https://tossed-and-found.herokuapp.com/) if you want to try it out that way.* You can log in as Tim (password is tim123) to see what everything looks like when it is filled out.
+Using Tossed & Found is pretty straightforward; you can add your discs, courses that you play at, and start scorekeeping a round (after selecting a course) from the navigation bar. The Home page gives you access to your messages, personal scores, and the marquee feature, the disc return.
+<br><br>
+<img src="TossedAndFound.gif" alt="Disc return in action" height="auto" width="800" />
+<br><br>
+*You are free to create an account here, but be aware that this is more of a demo and not the final version, thus I may be wiping the database a few times. If you want your data to be safe, install and run the app locally. 
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
