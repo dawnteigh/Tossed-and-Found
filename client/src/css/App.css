@@ -51,6 +51,7 @@
   background: rgb(255, 140, 0);
   text-decoration: none;
   color: white;
+  overflow-wrap: normal;
 }
 
 button, input[type=submit] {

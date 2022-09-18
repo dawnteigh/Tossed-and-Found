@@ -49,7 +49,7 @@ const Disc = ({ disc, handleRemoveDisc, handleUpdateDisc }) => {
       <Card.Description>
         <b>Color:</b> {color}
         <br/>
-        <b>Weight:</b> {weight}g
+        <b>Weight:</b> {weight}
         <br/>
         <b>ID:</b> {finder_key}
       </Card.Description>
