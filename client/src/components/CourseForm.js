@@ -23,7 +23,7 @@ const CourseForm = ({ handleAddCourse }) => {
   
   const handleSubmit = (e) => {
     e.preventDefault()
-    fetch('/api/courses', {
+    fetch('/courses', {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

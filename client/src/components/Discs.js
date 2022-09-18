@@ -10,7 +10,7 @@ const Discs = () => {
   const { setOpen, setErrorMessages } = useContext(UserContext)
 
   useEffect(() => {
-    fetch('/api/discs')
+    fetch('/discs')
     .then(r => r.json())
     .then(data => {
       if (data.error) {

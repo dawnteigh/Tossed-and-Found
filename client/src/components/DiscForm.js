@@ -26,7 +26,7 @@ const DiscForm = ({ handleAddDisc }) => {
   
   const handleSubmit = (e) => {
     e.preventDefault()
-    fetch('/api/discs', {
+    fetch('/discs', {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

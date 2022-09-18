@@ -14,7 +14,7 @@ function UserProvider({ children }) {
   const history = useHistory();
 
   useEffect(() => {
-    fetch("/api/me")
+    fetch("/me")
     .then(r => r.json())
     .then(data => {
       if (data.error) {
@@ -34,7 +34,7 @@ function UserProvider({ children }) {
   }
 
   const logout = () => {
-    fetch('/api/logout', {
+    fetch('/logout', {
       method: "DELETE"
     })
     .then(() => {

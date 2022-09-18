@@ -39,7 +39,7 @@ const ScoreCard = () => {
       setErrorMessages(["Your scorecard is incomplete! Go back and make sure each hole has a recorded score."])
       setOpen(true)
     } else {
-      fetch('/api/scores', {
+      fetch('/scores', {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

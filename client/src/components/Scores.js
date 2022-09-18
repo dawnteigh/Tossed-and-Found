@@ -9,7 +9,7 @@ const Scores = () => {
   const { setOpen, setErrorMessages } = useContext(UserContext)
 
   useEffect(() => {
-    fetch('/api/scores')
+    fetch('/scores')
     .then(r => r.json())
     .then(s => {
       if (s.error) {
@@ -22,7 +22,7 @@ const Scores = () => {
   }, [])
 
   const handleDelete = (e) => {
-    fetch(`/api/scores/${e.target.id}`, {
+    fetch(`/scores/${e.target.id}`, {
       method: "DELETE"
     })
     const updatedScores = scores.filter(s => s.id !== parseInt(e.target.id))
