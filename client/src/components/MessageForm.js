@@ -18,7 +18,7 @@ const MessageForm = ({ handleAddMessage, msgForm, setMsgForm }) => {
   
   const handleSubmit = (e) => {
     e.preventDefault()
-    fetch('/messages', {
+    fetch('/api/messages', {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

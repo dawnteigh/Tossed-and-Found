@@ -8,7 +8,7 @@ const DiscReturn = ({ setActiveIndex, msgForm, setMsgForm }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    fetch("/found", {
+    fetch("/api/found", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

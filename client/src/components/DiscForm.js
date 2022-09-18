@@ -26,7 +26,7 @@ const DiscForm = ({ handleAddDisc }) => {
   
   const handleSubmit = (e) => {
     e.preventDefault()
-    fetch('/discs', {
+    fetch('/api/discs', {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -83,58 +83,6 @@ const DiscForm = ({ handleAddDisc }) => {
           </Form.Group>
           <input type="submit" />
       </Form>
-      {/* <form onSubmit={handleSubmit}>
-        <select id="type" onChange={handleChange} value={dForm.type} >
-          <option value="">Select disc type</option>
-          <option value="Distance Driver">Distance Driver</option>
-          <option value="Fairway Driver">Fairway Driver</option>
-          <option value="Control Driver">Control Driver</option>
-          <option value="Midrange">Midrange</option>
-          <option value="Putter">Putter</option>
-        </select>
-        <br/>
-        <input
-          type="text"
-          id="make"
-          value={dForm.make}
-          placeholder="Make"
-          onChange={handleChange}
-        />
-        <br/>
-        <input
-          type="text"
-          id="model"
-          value={dForm.model}
-          placeholder="Model"
-          onChange={handleChange}
-        />
-        <br/>
-        <input
-          type="text"
-          id="color"
-          value={dForm.color}
-          placeholder="Color"
-          onChange={handleChange}
-        />
-        <br/>
-        <input
-          type="text"
-          id="weight"
-          value={dForm.weight}
-          placeholder="Weight in grams"
-          onChange={handleChange}
-        />
-        <br/>
-        <input
-          type="text"
-          id="img"
-          value={dForm.img}
-          placeholder="Image URL (optional)"
-          onChange={handleChange}
-        />
-        <br/>
-        <input type="submit" />
-      </form> */}
     </div>
   )
 }

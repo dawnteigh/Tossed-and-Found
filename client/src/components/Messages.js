@@ -10,7 +10,7 @@ const Messages = ({ msgForm, setMsgForm }) => {
   const [filter, setFilter] = useState("")
 
   useEffect(() => {
-    fetch("/messages")
+    fetch("/api/messages")
     .then(r => r.json())
     .then(data => {
       if (data.error) {

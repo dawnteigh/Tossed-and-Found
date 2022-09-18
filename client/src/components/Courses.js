@@ -11,7 +11,7 @@ const Courses = () => {
   const { setOpen, setErrorMessages } = useContext(UserContext)
 
   useEffect(() => {
-    fetch('/courses')
+    fetch('/api/courses')
     .then(r => r.json())
     .then(data => {
       if (data.error) {
