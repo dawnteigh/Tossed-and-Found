@@ -30,6 +30,7 @@ const Scores = () => {
         return s
       }
     }
+    
     return (
       <Item key={s.id}>
         <Item.Image size='mini' floated='right'><span className="score">{modifiedScore(score)}</span></Item.Image>
