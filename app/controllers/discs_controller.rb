@@ -1,12 +1,12 @@
 class DiscsController < ApplicationController
 
-  def index
-    if current_user
-      render json: current_user.discs, status: :ok
-    else
-      unauthorized
-    end
-  end
+  # def index
+  #   if current_user
+  #     render json: current_user.discs, status: :ok
+  #   else
+  #     unauthorized
+  #   end
+  # end
 
   # def show
   #   if current_user

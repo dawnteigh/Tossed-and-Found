@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :messages, only: [:create, :index]
-  resources :discs, only: [:create, :index, :update, :destroy]
+  resources :discs, only: [:create, :update, :destroy]
   resources :users, only: [:update]
   resources :scores, only: [:create, :index, :destroy]
   resources :courses, only: [:create, :index]

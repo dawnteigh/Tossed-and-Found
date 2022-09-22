@@ -1,35 +1,30 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useContext } from 'react'
 import { Item } from 'semantic-ui-react'
 import Moment from 'moment'
 import { UserContext } from '../context/user'
 
 const Scores = () => {
 
-  const [scores, setScores] = useState([])
-  const { setOpen, setErrorMessages } = useContext(UserContext)
+  const { user, setUser } = useContext(UserContext)
 
-  useEffect(() => {
-    fetch('/scores')
-    .then(r => r.json())
-    .then(s => {
-      if (s.error) {
-        setErrorMessages(s.error)
-        setOpen(true)
-      } else {
-          setScores(s)
-        }
-    })
-  }, [])
+  if (!user.scores) {
+    return (
+      <h1>Loading...</h1>
+    )
+  }
 
   const handleDelete = (e) => {
     fetch(`/scores/${e.target.id}`, {
       method: "DELETE"
     })
-    const updatedScores = scores.filter(s => s.id !== parseInt(e.target.id))
-    setScores(updatedScores)
+    const updatedScores = user.scores.filter(s => s.id !== parseInt(e.target.id))
+    setUser({
+      ...user,
+      scores: updatedScores
+    })
   }
 
-  const displayScores = scores.map(s => {
+  const displayScores = user.scores.map(s => {
     const score = s.strokes - s.par
     const modifiedScore = (s) => {
       if (s === 0) {
@@ -59,7 +54,7 @@ const Scores = () => {
 
   return (
     <Item.Group divided>
-      {scores.length === 0 ? "You have no scores to scores to speak of. Get out there and play!" : displayScores}
+      {user.scores.length === 0 ? "You have no scores to scores to speak of. Get out there and play!" : displayScores}
     </Item.Group>
   )
 }

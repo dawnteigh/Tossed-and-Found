@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useContext } from 'react'
 import Disc from '../components/Disc'
 import DiscForm from '../components/DiscForm'
 import { Card, Divider } from 'semantic-ui-react'
@@ -7,7 +7,13 @@ import { UserContext } from '../context/user'
 const Discs = () => {
 
   const { user, setUser } = useContext(UserContext)
-  
+
+  if (!user.discs) {
+    return (
+      <h1>Loading...</h1>
+      )
+  }
+
   const handleAddDisc = (d) => {
     setUser({
       ...user,
@@ -38,7 +44,7 @@ const Discs = () => {
   }
   
   const displayDiscs = user.discs.map(d => <Disc key={d.id} disc={d} handleRemoveDisc={handleRemoveDisc} handleUpdateDisc={handleUpdateDisc} /> )
-    
+  
   return (
     <>
       <h2>Your Discography</h2>
