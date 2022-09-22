@@ -3,6 +3,6 @@ class DiscSerializer < ActiveModel::Serializer
   has_one :user
 
   def weight
-    "#{self.object.weight}g"
+    "#{object.weight}g"
   end
 end
