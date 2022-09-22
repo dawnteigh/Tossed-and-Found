@@ -1,14 +1,14 @@
 class MessagesController < ApplicationController
 
-  def index
-    if current_user
-      msgs = current_user.messages + Message.where(to: current_user.username)
-      ordered_msgs = msgs.sort_by{ |msg| msg.created_at }
-      render json: ordered_msgs, status: :ok
-    else
-      unauthorized
-    end
-  end
+  # def index
+  #   if current_user
+  #     msgs = current_user.messages + Message.where(to: current_user.username)
+  #     ordered_msgs = msgs.sort_by{ |msg| msg.created_at }
+  #     render json: ordered_msgs, status: :ok
+  #   else
+  #     unauthorized
+  #   end
+  # end
 
   def create
     if current_user

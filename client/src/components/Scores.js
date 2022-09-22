@@ -7,12 +7,6 @@ const Scores = () => {
 
   const { user, setUser } = useContext(UserContext)
 
-  if (!user.scores) {
-    return (
-      <h1>Loading...</h1>
-    )
-  }
-
   const handleDelete = (e) => {
     fetch(`/scores/${e.target.id}`, {
       method: "DELETE"

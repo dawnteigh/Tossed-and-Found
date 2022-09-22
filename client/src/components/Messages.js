@@ -1,37 +1,23 @@
-import React, { useContext, useState, useEffect } from 'react'
+import React, { useContext, useState } from 'react'
 import MessageForm from '../components/MessageForm'
 import Moment from 'moment'
 import { Comment, Container, Divider, Input } from 'semantic-ui-react'
 import { UserContext } from '../context/user'
 
 const Messages = ({ msgForm, setMsgForm }) => {
-  const { user, setOpen, setErrorMessages } = useContext(UserContext)
-  const [messages, setMessages] = useState([]);
+  const { user, setUser } = useContext(UserContext)
   const [filter, setFilter] = useState("")
 
-  useEffect(() => {
-    fetch("/messages")
-    .then(r => r.json())
-    .then(data => {
-      if (data.error) {
-        setErrorMessages(data.error)
-        setOpen(true)
-      } else {
-          setMessages(data)
-        }
-    })
-  }, [])
-
-  const filteredMessages = messages.filter(m => (m.subject + " " + m.body + " " + m.to + " " + m.user.username).toLowerCase().includes(filter.toLowerCase()))
+  const filteredMessages = user.messages.filter(m => (m.subject + " " + m.body + " " + m.to + " " + m.from).toLowerCase().includes(filter.toLowerCase()))
   const displayMessages = filteredMessages.map(m => {
     return (
     <Comment
       key={m.id}
       className="message"
-      style={ m.user.username === user.username ? { background: "rgba(255, 140, 0, 0.325)" } : null }
+      style={ m.from === user.username ? { background: "rgba(255, 140, 0, 0.325)" } : null }
     >
       <Comment.Content>
-        <Comment.Author as="a">{m.user.username === user.username ? "me" : m.user.username}</Comment.Author>
+        <Comment.Author as="a">{m.from === user.username ? "me" : m.from}</Comment.Author>
         <Comment.Metadata>
           <div>to: { m.to === user.username ? "me" : m.to } | {Moment(m.created_at).format('MMMM DD,  LT') }</div>
         </Comment.Metadata>
@@ -41,12 +27,12 @@ const Messages = ({ msgForm, setMsgForm }) => {
           {m.body}  
         </Comment.Text>
         <Comment.Actions>
-        {m.user.username === user.username ? null :
+        {m.from === user.username ? null :
           <Comment.Action onClick={() =>
             setMsgForm({
               ...msgForm,
               subject: m.subject,
-              to: m.user.username
+              to: m.from
               })
             } >Reply</Comment.Action>}
         </Comment.Actions>
@@ -56,7 +42,10 @@ const Messages = ({ msgForm, setMsgForm }) => {
   })
 
   const handleAddMessage = (msg) => {
-    setMessages([...messages, msg])
+    setUser({
+      ...user,
+      messages: [...user.messages, msg]
+    })
   }
 
   return (
