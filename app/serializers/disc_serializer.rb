@@ -5,4 +5,5 @@ class DiscSerializer < ActiveModel::Serializer
   def weight
     "#{object.weight}g"
   end
+
 end

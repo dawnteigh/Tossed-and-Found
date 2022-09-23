@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react'
 import { dataArrays } from '../dataArrays';
 import { UserContext } from '../context/user';
 import Messages from '../components/Messages';
+import MyCourses from './MyCourses';
 import Scores from '../components/Scores';
 import DiscReturn from '../components/DiscReturn';
 import { Accordion, Container, Grid, Icon, Image } from 'semantic-ui-react'
@@ -72,9 +73,21 @@ const Home = () => {
             onClick={handleClick}
           >
             <Icon name='dropdown' />
-            Found a disc?
+            My Courses
           </Accordion.Title>
           <Accordion.Content active={activeIndex === "2"}>
+            <MyCourses />
+          </Accordion.Content>
+
+          <Accordion.Title
+            active={activeIndex === "3"}
+            id={3}
+            onClick={handleClick}
+          >
+            <Icon name='dropdown' />
+            Found a disc?
+          </Accordion.Title>
+          <Accordion.Content active={activeIndex === "3"}>
             <DiscReturn setActiveIndex={setActiveIndex} msgForm={msgForm} setMsgForm={setMsgForm} />
           </Accordion.Content>
         </Accordion>

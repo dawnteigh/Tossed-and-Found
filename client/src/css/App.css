@@ -77,6 +77,10 @@ button, input[type=submit] {
     color: rgb(255, 140, 0);
     cursor: pointer;
   }
+
+  .myCourse:hover {
+    cursor: pointer;
+  }
 }
 
 input[type=text], textarea {

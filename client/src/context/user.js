@@ -38,10 +38,10 @@ function UserProvider({ children }) {
       method: "DELETE"
     })
     .then(() => {
-      setUser({})
-      setSelectedCourse(false)
       setLoggedIn(false)
       history.push('/login')
+      setSelectedCourse(false)
+      setUser({})
     })
   }
 
