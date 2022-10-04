@@ -50,7 +50,8 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 ## Roadmap
 Obviously, a whole lot of work is left to be done to transform this side project into a legitimate app. Those goals will be outlined here.
 Future additions/changes:
-- Case insensitive usernames.
+
+- Fix duplicate user courses
 
 - Implement a system that encourages and rewards returning lost discs. Users with a certain community standing may receive invites to exclusive tournaments and events, or special offers from sponsors.
 

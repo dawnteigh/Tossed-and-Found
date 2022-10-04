@@ -39,7 +39,7 @@ const MyCourses = () => {
         <br/>
         Click on one to start scorekeeping a new round!
       </h4>
-      {displayCourses}
+      {user.courses.length === 0 ? "... unless of course you haven't recorded any scores with us yet. Click the courses tab to get started!" : displayCourses}
     </div>
   )
 }

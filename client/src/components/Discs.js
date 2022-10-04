@@ -48,9 +48,12 @@ const Discs = () => {
   return (
     <>
       <h2>Your Discography</h2>
-      <Card.Group stackable itemsPerRow={3} id="discGrid">
-        {displayDiscs}
-      </Card.Group>
+      {user.discs.length === 0 ?
+        "You haven't added any discs yet!" : 
+        <Card.Group stackable itemsPerRow={3} id="discGrid">
+          {displayDiscs}
+        </Card.Group>
+      }
       <Divider />
       <div>
         <DiscForm handleAddDisc={ handleAddDisc } />

@@ -33,7 +33,7 @@ const ScoreCard = () => {
   const handleAddScore = (s) => {
     setUser({
       ...user,
-      scores: [...user.scores, s ],
+      scores: [...user.scores, s],
       courses: [...user.courses, s.course]  
     })
   }
