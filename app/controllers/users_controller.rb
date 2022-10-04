@@ -1,11 +1,8 @@
 class UsersController < ApplicationController
+  skip_before_action :authorize, only: [:create]
 
   def show
-    if current_user
-      render json: current_user, status: :ok
-    else
-      unauthorized
-    end
+    render json: current_user, status: :ok
   end
 
   def create
@@ -15,12 +12,8 @@ class UsersController < ApplicationController
   end
 
   def update
-    if current_user
-      current_user.update!(user_params)
-      render json: current_user, status: :ok
-    else
-      unauthorized
-    end
+    current_user.update!(user_params)
+    render json: current_user, status: :ok
   end
 
   private

@@ -5,13 +5,12 @@ import { Card } from 'semantic-ui-react'
 
 const ScoreCard = () => {
 
-  const { selectedCourse, history, user, setOpen, setErrorMessages } = useContext(UserContext)
+  const { selectedCourse, history, user, setUser, setOpen, setErrorMessages } = useContext(UserContext)
   const { id, name, holes } = selectedCourse
   const [holesArray, setHolesArray] = useState([])
   const [par, setPar] = useState(0)
   const [strokes, setStrokes] = useState(0)
   const [holeCount, setHoleCount] = useState(0)
-  
   
   useEffect(() => {
     if (!selectedCourse) {
@@ -31,6 +30,13 @@ const ScoreCard = () => {
       }
   }
 
+  const handleAddScore = (s) => {
+    setUser({
+      ...user,
+      scores: [...user.scores, s ]     
+    })
+  }
+
   const scoreForms = holesArray.map(h => <ScoreForm key={h} hole={h} tally={tally} count={holeCount} setCount={setHoleCount} />)
 
   const handleSubmit = (e) => {
@@ -39,7 +45,7 @@ const ScoreCard = () => {
       setErrorMessages(["Your scorecard is incomplete! Go back and make sure each hole has a recorded score."])
       setOpen(true)
     } else {
-      fetch('/scores', {
+      fetch('/api/scores', {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -52,11 +58,12 @@ const ScoreCard = () => {
         })
       })
       .then(r => r.json())
-      .then(r => {
-        if (r.error) {
-          setErrorMessages(r.error)
+      .then(score => {
+        if (score.error) {
+          setErrorMessages(score.error)
           setOpen(true)
         } else {
+            handleAddScore(score)
             history.push('/')
           }
       })

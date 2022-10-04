@@ -6,7 +6,7 @@ const MyCourses = () => {
 
   const { user, history, setSelectedCourse } = useContext(UserContext)
 
-  const displayCourses = user.courses.map(c => {
+  const displayCourses = user.courses.map((c, i) => {
     const handleClick = () => {
       setSelectedCourse(c)
       history.push('/scorecard')
@@ -24,7 +24,7 @@ const MyCourses = () => {
     }
 
     return (
-      <Segment key={c.id} onClick={handleClick} className="myCourse" raised>
+      <Segment key={i} onClick={handleClick} className="myCourse" raised>
         <b>{c.name}</b> in {c.location}
         <br/>
         <i>Personal Best</i>: {modifiedScore(c.best)}  

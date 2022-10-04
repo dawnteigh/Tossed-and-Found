@@ -2,6 +2,7 @@ class ApplicationController < ActionController::API
   include ActionController::Cookies
   rescue_from ActiveRecord::RecordInvalid, with: :invalid_response
   rescue_from ActiveRecord::ConnectionNotEstablished, with: :no_database
+  before_action :authorize
 
   private
   
@@ -9,8 +10,10 @@ class ApplicationController < ActionController::API
     User.find_by(id: session[:user_id])
   end
 
-  def unauthorized
-    render json: { error: ["Please log in or sign up to continue."] }, status: :unauthorized
+  def authorize
+    if !current_user
+      return render json: { error: ["Please log in or sign up to continue."] }, status: :unauthorized
+    end
   end
 
   def not_found(obj)

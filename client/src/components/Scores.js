@@ -8,7 +8,7 @@ const Scores = () => {
   const { user, setUser } = useContext(UserContext)
 
   const handleDelete = (e) => {
-    fetch(`/scores/${e.target.id}`, {
+    fetch(`/api/scores/${e.target.id}`, {
       method: "DELETE"
     })
     const updatedScores = user.scores.filter(s => s.id !== parseInt(e.target.id))
@@ -35,7 +35,7 @@ const Scores = () => {
       <Item key={s.id}>
         <Item.Image size='mini' floated='right'><span className="score">{modifiedScore(score)}</span></Item.Image>
         <Item.Content>
-          <Item.Header>{s.course.name}</Item.Header>
+          {/* <Item.Header>{s.course.name}</Item.Header> */}
           <Item.Meta>{Moment(s.created_at).format('MMMM DD,  LT')}</Item.Meta>
           <Item.Description>
             Par: {s.par}<br/>

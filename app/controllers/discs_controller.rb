@@ -1,74 +1,50 @@
 class DiscsController < ApplicationController
 
   # def index
-  #   if current_user
-  #     render json: current_user.discs, status: :ok
-  #   else
-  #     unauthorized
-  #   end
+  #   render json: current_user.discs, status: :ok
   # end
 
   # def show
-  #   if current_user
-  #     disc = current_user.discs.find_by(id: params[:id])
-  #     if disc
-  #       render json: disc, status: :ok
-  #     else
-  #       not_found "disc"
-  #     end
+  #   disc = current_user.discs.find_by(id: params[:id])
+  #   if disc
+  #     render json: disc, status: :ok
   #   else
-  #     unauthorized
+  #     not_found "disc"
   #   end
   # end
 
   def create
-    if current_user
-      disc = current_user.discs.create!(disc_params)
-      disc.update(finder_key: Random.hex(3))
-      render json: disc, status: :created
-    else
-      unauthorized
-    end
+    disc = current_user.discs.create!(disc_params)
+    disc.update(finder_key: Random.hex(3))
+    render json: disc, status: :created
   end
 
   def update
-    if current_user
-      disc = current_user.discs.find_by(id: params[:id])
-      if disc
-        disc.update!(disc_params)
-        render json: disc, status: :ok
-      else
-        not_found "disc"
-      end
+    disc = current_user.discs.find_by(id: params[:id])
+    if disc
+      disc.update!(disc_params)
+      render json: disc, status: :ok
     else
-      unauthorized
+      not_found "disc"
     end
   end
 
   def destroy
-    if current_user
-      disc = current_user.discs.find_by(id: params[:id])
-      if disc
-        disc.destroy
-        head :no_content
-      else
-        not_found "disc"
-      end
+    disc = current_user.discs.find_by(id: params[:id])
+    if disc
+      disc.destroy
+      head :no_content
     else
-      unauthorized
+      not_found "disc"
     end
   end
 
   def tossed_and_found
-    if current_user
-      disc = Disc.find_by(finder_key: params[:key])
-      if disc
-        render json: disc, status: :ok
-      else
-        not_found "disc"
-      end
+    disc = Disc.find_by(finder_key: params[:key])
+    if disc
+      render json: disc, status: :ok
     else
-      unauthorized
+      not_found "disc"
     end
   end
 

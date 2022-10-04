@@ -1,11 +1,7 @@
 class CoursesController < ApplicationController
 
   def index
-    if current_user
-      render json: Course.all, status: :ok
-    else
-      unauthorized
-    end
+    render json: Course.all, status: :ok
   end
   
   # def show
@@ -22,12 +18,8 @@ class CoursesController < ApplicationController
   # end
   
   def create
-    if current_user
-      course = Course.create!(course_params)
-      render json: course, status: :created
-    else
-      unauthorized
-    end
+    course = Course.create!(course_params)
+    render json: course, status: :created
   end
   
   # def update
