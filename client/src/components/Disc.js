@@ -9,7 +9,7 @@ const Disc = ({ disc, handleRemoveDisc, handleUpdateDisc }) => {
   const { setOpen, setErrorMessages } = useContext(UserContext)
 
   const handleChange = () => {
-    fetch (`/discs/${id}`, {
+    fetch (`/api/discs/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json"
@@ -31,12 +31,11 @@ const Disc = ({ disc, handleRemoveDisc, handleUpdateDisc }) => {
   }
 
   const handleDelete = () => {
-    fetch(`/discs/${id}`, {
+    fetch(`/api/discs/${id}`, {
       method: "DELETE"
     })
     handleRemoveDisc(id)
   }
-
 
   return (
     <Card raised>

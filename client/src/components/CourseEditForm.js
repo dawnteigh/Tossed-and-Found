@@ -2,15 +2,16 @@ import React, { useState, useContext } from 'react'
 import { UserContext } from '../context/user'
 import { Input } from 'semantic-ui-react'
 
-const CourseForm = ({ handleAddCourse }) => {
 
+const CourseEditForm = ({ handleUpdateCourse, setEditMode }) => {
   const [cForm, setCForm] = useState({
     name: "",
     location: "",
     holes: ""
   })
 
-  const { setOpen, setErrorMessages } = useContext(UserContext)
+  const { setOpen, setErrorMessages, selectedCourse } = useContext(UserContext)
+  const { id, name } = selectedCourse
 
   const handleChange = (e) => {
     const key = e.target.id
@@ -23,8 +24,8 @@ const CourseForm = ({ handleAddCourse }) => {
   
   const handleSubmit = (e) => {
     e.preventDefault()
-    fetch('/api/courses', {
-      method: "POST",
+    fetch(`/api/courses/${id}`, {
+      method: "PATCH",
       headers: {
         "Content-Type": "application/json"
       },
@@ -40,19 +41,20 @@ const CourseForm = ({ handleAddCourse }) => {
           setErrorMessages(c.error)
           setOpen(true)
       } else { 
-      handleAddCourse(c)
+      handleUpdateCourse(c)
       setCForm({
         name: "",
         location: "",
         holes: ""
       })
+      setEditMode(false)
     }
   })
   }
 
   return (
     <div>
-      Add new course:
+      Now editing <b>{name}</b>...
       <br/>
       <form onSubmit={handleSubmit}>
         <Input
@@ -86,4 +88,5 @@ const CourseForm = ({ handleAddCourse }) => {
   )
 }
 
-export default CourseForm
+
+export default CourseEditForm

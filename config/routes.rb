@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     resources :discs, only: [:create, :update, :destroy]
     resources :users, only: [:update]
     resources :scores, only: [:create, :destroy]
-    resources :courses, only: [:create, :index]
+    resources :courses, only: [:create, :update, :index]
 
     get "/me", to: "users#show"
     post "/signup", to: "users#create"

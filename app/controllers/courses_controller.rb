@@ -22,19 +22,15 @@ class CoursesController < ApplicationController
     render json: course, status: :created
   end
   
-  # def update
-  #   if current_user
-  #     course = Course.find_by(id: params[:id])
-  #     if course
-  #       course.update!(course_params)
-  #       render json: course, status: :ok
-  #     else
-  #       not_found "course"
-  #     end
-  #   else
-  #     unauthorized
-  #   end
-  # end
+  def update
+    course = Course.find_by(id: params[:id])
+    if course
+      course.update!(course_params)
+      render json: course, status: :ok
+    else
+      not_found "course"
+    end
+  end
 
   # def destroy
   #   if current_user
