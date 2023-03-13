@@ -74,6 +74,7 @@ const ScoreCard = () => {
   return (
     <div>
       <h3>Currently playing at: {name}</h3><br/>
+      Enter the par and your number of strokes for each hole. Use the +/- buttons to add or remove the numbers from your total!<br/>
       <b>Par:</b> {par} <b>Strokes:</b> {strokes}
       <br/><br/>
       <Card.Group id="formGrid" itemsPerRow={3} >
