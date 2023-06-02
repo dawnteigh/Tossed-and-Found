@@ -1,8 +1,7 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :username
+  attributes :id, :username, :messages
   has_many :scores
   has_many :discs
-  has_many :messages
   has_many :courses
 
   def username
@@ -10,7 +9,7 @@ class UserSerializer < ActiveModel::Serializer
   end
   
   def messages
-    msgs = object.messages + Message.where(to: object.username)
+    msgs = object.messages + Message.where(to: username)
     ordered_msgs = msgs.sort_by{ |msg| msg.created_at }
     ordered_msgs
   end

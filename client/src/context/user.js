@@ -67,4 +67,4 @@ function UserProvider({ children }) {
   )
 }
 
-export { UserContext, UserProvider}
+export { UserContext, UserProvider }
