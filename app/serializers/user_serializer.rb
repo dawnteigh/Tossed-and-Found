@@ -3,6 +3,7 @@ class UserSerializer < ActiveModel::Serializer
   has_many :scores
   has_many :discs
   has_many :courses
+  has_many :messages
 
   def username
     object.username.capitalize
