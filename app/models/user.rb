@@ -5,7 +5,7 @@ class User < ApplicationRecord
   has_many :courses, through: :scores
   has_many :messages, dependent: :destroy
 
-  before_save :format_username
+  before_validation :format_username
 
   validates :username, presence: true, uniqueness: true, format: { with: /\A[a-zA-Z0-9]+\Z/ }
 

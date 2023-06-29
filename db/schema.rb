@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_07_033349) do
+ActiveRecord::Schema.define(version: 2023_06_29_142840) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2022_09_07_033349) do
     t.integer "holes"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["name", "location"], name: "index_courses_on_name_and_location", unique: true
   end
 
   create_table "discs", force: :cascade do |t|

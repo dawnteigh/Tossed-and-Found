@@ -19,8 +19,8 @@ class UserSerializer < ActiveModel::Serializer
       { 
         id: c.id,
         holes: c.holes,
-        name: c.name,
-        location: c.location,
+        name: c.f_name,
+        location: c.f_location,
         best: c.personal_best(object.id)
       }
     }
