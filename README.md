@@ -11,7 +11,7 @@ If you're a disc golfer, chances are you've spent a fair amount of time searchin
 - [postgreSQL](https://www.postgresql.org/download/)
 
 ## Installation
-**<b>If you would like to skip this and just check out the app, see the Usage section.</b>
+<!-- **<b>If you would like to skip this and just check out the app, see the Usage section.</b> -->
 - In this application's GitHub repo, click the fork button to create a copy for yourself. Next, in your own fork, click the 'Code' button, make sure SSH is selected, and copy what's there.<br>
 - Head into your CLI (Command Line Interface) and navigate to the directory where Tossed & Found will live. Then run the following commands in order:
 ```shell
