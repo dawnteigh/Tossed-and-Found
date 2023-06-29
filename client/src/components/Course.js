@@ -2,11 +2,11 @@ import React, { useContext } from 'react'
 import { UserContext } from '../context/user';
 import { Card, Table } from 'semantic-ui-react'
 
-const Course = ({ course, setEditMode }) => {
+const Course = ({ course, setEditMode, edit }) => {
 
   const { setSelectedCourse, history } = useContext(UserContext)
 
-  const { name, location, holes, top_scores } = course
+  const { id, name, location, holes, top_scores } = course
 
   const handleClick = () => {
     setSelectedCourse(course)
@@ -14,8 +14,14 @@ const Course = ({ course, setEditMode }) => {
   }
 
   const handleEditMode = () => {
-    setSelectedCourse(course)
-    setEditMode(true)
+    if (edit === id) {
+      setSelectedCourse(false)
+      setEditMode(false)
+    }
+    else {
+      setSelectedCourse(course)
+      setEditMode(id)
+    }
   }
 
   const topScores = top_scores.map(s => {
@@ -46,7 +52,7 @@ const Course = ({ course, setEditMode }) => {
         <Card.Meta>
           {location} | {holes} holes<br/>
           <button onClick={handleClick}>Play</button>
-          <button onClick={handleEditMode}>Edit</button>
+          <button onClick={handleEditMode}>{edit === id ? "Cancel" : "Edit"}</button>
         </Card.Meta>
         <Card.Description>
           <b>Top 3 Scores</b><br/>

@@ -25,7 +25,7 @@ const Courses = () => {
   }, [])
 
   const displayCourses = courses.map(c => {
-    return <Course course={c} key={c.id} setEditMode={setEditMode} />
+    return <Course course={c} key={c.id} setEditMode={setEditMode} edit={editMode} />
   })
 
   const handleAddCourse = (c) => {
