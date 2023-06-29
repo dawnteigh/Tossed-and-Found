@@ -36,10 +36,16 @@ In the first one, type:
 ```shell
 ~your-computer/cool-apps/tossed-and-found$ rails s
 ```
-This will start the back end on http://localhost:3000. And for the front end (running on http://localhost:4000), the command is:
+This will start the backend on http://localhost:3000. And for the frontend (running on http://localhost:4000), the command is:
 ```shell
 ~your-computer/cool-apps/tossed-and-found$ npm start --prefix client
 ```
+Then, in a third terminal (last one, I promise):
+```shell
+~your-computer/cool-apps/tossed-and-found$ rails db:create
+~your-computer/cool-apps/tossed-and-found$ rails db:migrate
+```
+Optionally, you can run `rails db:seed` to view the app with some pre-loaded data. You can then sign in as Tim, Rose, or Kat (password is their name in lowercase followed by 123) and explore the different features that way.
 <!-- Alternatively, Tossed & Found is deployed [here](https://tossed-and-found.herokuapp.com/) if you want to try it out that way.* You can log in as Tim (password is tim123) to see what everything looks like when it is filled out. -->
 Using Tossed & Found is pretty straightforward; you can add your discs, courses that you play at, and start scorekeeping a round (after selecting a course) from the navigation bar. The Home page gives you access to your messages, personal scores, and the marquee feature, the disc return.
 <br><br>
