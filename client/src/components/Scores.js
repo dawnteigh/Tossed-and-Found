@@ -49,7 +49,7 @@ const Scores = () => {
 
   return (
     <Item.Group divided>
-      {user.scores.length === 0 ? "You have no scores to scores to speak of. Get out there and play!" : displayScores}
+      {user.scores.length === 0 ? "You have no scores to speak of. Get out there and play!" : displayScores}
     </Item.Group>
   )
 }
