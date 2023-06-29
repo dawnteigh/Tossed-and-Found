@@ -19,7 +19,10 @@ If you're a disc golfer, chances are you've spent a fair amount of time searchin
 ~your-computer/cool-apps$ cd tossed-and-found
 ~your-computer/cool-apps/tossed-and-found$ bundle install
 ~your-computer/cool-apps/tossed-and-found$ npm install --prefix client
+# Then, depending on your setup: #
 ~your-computer/cool-apps/tossed-and-found$ sudo service postgresql start
+# OR #
+~your-computer/cool-apps/tossed-and-found$ brew services postgresql start
 ``` 
 If the last command gives you issues, make sure you have postgreSQL installed with:
 ```shell
