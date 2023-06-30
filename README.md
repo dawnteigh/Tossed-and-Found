@@ -17,6 +17,15 @@ If you're a disc golfer, chances are you've spent a fair amount of time searchin
 ```shell
 ~your-computer/cool-apps$ git clone (the SSH you copied)
 ~your-computer/cool-apps$ cd tossed-and-found
+```
+Before you go any further, make sure you have postgreSQL installed with:
+```shell
+psql --version
+```
+If you need additional help or instructions, you can go [here](https://docs.microsoft.com/en-us/windows/wsl/tutorials/wsl-database#install-postgresql) for WSL or [here](https://www.codementor.io/@engineerapart/getting-started-with-postgresql-on-mac-osx-are8jcopb) for OSX.
+<br><br>
+Finally, you will install all dependencies and start up Postgres:
+```shell
 ~your-computer/cool-apps/tossed-and-found$ bundle install
 ~your-computer/cool-apps/tossed-and-found$ npm install --prefix client
 # Then, depending on your setup: #
@@ -24,11 +33,6 @@ If you're a disc golfer, chances are you've spent a fair amount of time searchin
 # OR #
 ~your-computer/cool-apps/tossed-and-found$ brew services postgresql start
 ``` 
-If the last command gives you issues, make sure you have postgreSQL installed with:
-```shell
-psql --version
-```
-If you need additional help or instructions, you can go [here](https://docs.microsoft.com/en-us/windows/wsl/tutorials/wsl-database#install-postgresql) for WSL or [here](https://www.codementor.io/@engineerapart/getting-started-with-postgresql-on-mac-osx-are8jcopb) for OSX.
 
 ## Usage
 If you've installed Tossed & Found on your machine using the instructions above, you're going to need two terminals open.
