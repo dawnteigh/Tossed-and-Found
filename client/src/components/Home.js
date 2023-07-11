@@ -1,5 +1,4 @@
 import React, { useContext, useState } from 'react'
-import { dataArrays } from '../dataArrays';
 import { UserContext } from '../context/user';
 import Messages from '../components/Messages';
 import MyCourses from './MyCourses';
@@ -8,15 +7,13 @@ import DiscReturn from '../components/DiscReturn';
 import { Accordion, Container, Grid, Icon, Image } from 'semantic-ui-react'
 
 const Home = () => {
-  const { loggedIn } = useContext(UserContext);
+  const { loggedIn, randomImg } = useContext(UserContext);
   const [activeIndex, setActiveIndex] = useState("");
   const [msgForm, setMsgForm] = useState({
     subject: "",
     to: "",
     body: ""
   })
-
-  const randomImg = dataArrays.imgs[Math.floor(Math.random() * dataArrays.imgs.length)];
 
   if (!loggedIn) {
     return (

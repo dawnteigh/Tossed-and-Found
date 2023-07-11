@@ -1,13 +1,11 @@
 import React, { useContext } from 'react'
 import { UserContext } from '../context/user';
-import { dataArrays } from '../dataArrays';
 import { NavLink } from "react-router-dom";
 import { Icon } from 'semantic-ui-react';
 
 
 const NavBar = () => {
-  const { loggedIn, logout, user } = useContext(UserContext);
-  const randomGreeting = dataArrays.greetings[Math.floor(Math.random() * dataArrays.greetings.length)];
+  const { loggedIn, logout, user, greeting } = useContext(UserContext);
 
  if (!loggedIn) {
   return (
@@ -31,7 +29,7 @@ const NavBar = () => {
  }
   return (
     <div className='navBar'>
-      <span className="greeting">{randomGreeting}<b>{user.username}!</b></span>
+      <span className="greeting">{greeting}<b>{user.username}!</b></span>
       <NavLink
         className="navTab"
         to="/"

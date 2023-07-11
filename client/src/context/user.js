@@ -1,17 +1,22 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
+import { dataArrays } from '../dataArrays';
 
 const UserContext = React.createContext();
 
 function UserProvider({ children }) {
 
-  const [user, setUser] = useState({})
+  const [user, setUser] = useState(null)
   const [loggedIn, setLoggedIn] = useState(false)
   const [selectedCourse, setSelectedCourse] = useState(false)
   const [open, setOpen] = useState(false)
   const [errorMessages, setErrorMessages] = useState([])
+  const [greeting, setGreeting] = useState("")
 
   const history = useHistory();
+
+  const randomImg = dataArrays.imgs[Math.floor(Math.random() * dataArrays.imgs.length)];
+  const randomGreeting = dataArrays.greetings[Math.floor(Math.random() * dataArrays.greetings.length)];
 
   useEffect(() => {
     fetch("/api/me")
@@ -20,16 +25,19 @@ function UserProvider({ children }) {
       if (data.error) {
       setLoggedIn(false)
       history.push("/")
-      } else {
+      }
+      else {
           setUser(data)
           setLoggedIn(true)
-        }
+          setGreeting(randomGreeting)
+      }
     })
   }, [])
 
   const login = (user) => {
     setUser(user)
     setLoggedIn(true)
+    setGreeting(randomGreeting)
     history.push("/")
   }
 
@@ -41,7 +49,7 @@ function UserProvider({ children }) {
       setLoggedIn(false)
       history.push('/login')
       setSelectedCourse(false)
-      setUser({})
+      setUser(null)
     })
   }
 
@@ -60,7 +68,9 @@ function UserProvider({ children }) {
     setSelectedCourse,
     login,
     logout,
-    history
+    history,
+    randomImg,
+    greeting
     }}>
     {children}
   </UserContext.Provider>
