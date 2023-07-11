@@ -32,6 +32,7 @@ const Login = () => {
   
   return (
     <div className="userForm">
+      <span className='subtle'>Demo account - Username: Tim, Password: tim123 </span>
       <Form onSubmit={handleSubmit}>
       <Form.Input
         type="text"
