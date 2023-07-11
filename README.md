@@ -31,7 +31,7 @@ Finally, you will install all dependencies and start up Postgres:
 # Then, depending on your setup: #
 ~your-computer/cool-apps/tossed-and-found$ sudo service postgresql start
 # OR #
-~your-computer/cool-apps/tossed-and-found$ brew services postgresql start
+~your-computer/cool-apps/tossed-and-found$ brew services start postgresql
 ``` 
 
 ## Usage
