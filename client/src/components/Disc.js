@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import { Card, Image } from 'semantic-ui-react'
 import { UserContext } from '../context/user'
 
-const Disc = ({ disc, handleRemoveDisc, handleUpdateDisc }) => {
+const Disc = ({ disc, handleRemoveDisc, handleUpdateDisc, editing, setEditing }) => {
 
   const { id, make, model, color, disc_type, weight, img, finder_key, lost } = disc
   const [checked, setChecked] = useState(lost)
@@ -30,6 +30,15 @@ const Disc = ({ disc, handleRemoveDisc, handleUpdateDisc }) => {
     })
   }
 
+  const handleEdit = () => {
+    if (editing.id === id) {
+      setEditing(false)
+    }
+    else {
+      setEditing(disc)
+    }
+  }
+
   const handleDelete = () => {
     fetch(`/api/discs/${id}`, {
       method: "DELETE"
@@ -54,7 +63,7 @@ const Disc = ({ disc, handleRemoveDisc, handleUpdateDisc }) => {
       </Card.Description>
     </Card.Content>
     <Card.Content extra>
-    <button className='edit'>Edit</button>
+    <button className='edit' onClick={handleEdit}>{editing.id === id ? "Cancel" : "Edit"}</button>
     <b>Lost?</b> <input type="checkbox" checked={checked} onChange={handleChange} />
     <button className="delete" onClick={handleDelete}>Delete</button>
     </Card.Content>
