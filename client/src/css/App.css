@@ -148,6 +148,23 @@ input[type=checkbox] {
   font-weight: bold;
 }
 
+.edit {
+  left: 5%;
+  bottom: 3%;
+  position: absolute;
+  margin: 0px;
+  padding: .25em;
+  border-radius: 0;
+  font-size: .75em;
+  color: rgb(255, 140, 0);
+  background-color: white;
+}
+
+.edit:hover {
+  color: rgb(210, 209, 208);
+  background-color: white
+}
+
 .delete {
   right: 5%;
   bottom: 3%;

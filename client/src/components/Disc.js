@@ -54,6 +54,7 @@ const Disc = ({ disc, handleRemoveDisc, handleUpdateDisc }) => {
       </Card.Description>
     </Card.Content>
     <Card.Content extra>
+    <button className='edit'>Edit</button>
     <b>Lost?</b> <input type="checkbox" checked={checked} onChange={handleChange} />
     <button className="delete" onClick={handleDelete}>Delete</button>
     </Card.Content>
