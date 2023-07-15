@@ -5,12 +5,12 @@ import { Form } from 'semantic-ui-react'
 const DiscEdit = ({ handleUpdateDisc, disc, setEditing }) => {
 
   const [dForm, setDForm] = useState({
-    make: "",
-    model: "",
-    type: "",
-    color: "",
-    weight: "",
-    img: ""
+    make: disc.make,
+    model: disc.model,
+    type: disc.type,
+    color: disc.color,
+    weight: parseInt(disc.weight),
+    img: disc.img
   })
 
   const { setOpen, setErrorMessages } = useContext(UserContext)
@@ -69,8 +69,8 @@ const DiscEdit = ({ handleUpdateDisc, disc, setEditing }) => {
           <Form.Field id="make" value={dForm.make} placeholder='Make' control='input'  onChange={handleChange} />
           <Form.Field id="model" value={dForm.model} placeholder='Model' control='input'  onChange={handleChange} />
           <Form.Field id="color" value={dForm.color} placeholder='Color' control='input'  onChange={handleChange} />
-          </Form.Group>
-          <Form.Group widths='equal'>
+        </Form.Group>
+        <Form.Group widths='equal'>
           <Form.Field id="type" value={dForm.type} control='select' onChange={handleChange} >
             <option value="">Select disc type</option>
             <option value="Distance Driver">Distance Driver</option>
@@ -81,8 +81,8 @@ const DiscEdit = ({ handleUpdateDisc, disc, setEditing }) => {
           </Form.Field>
           <Form.Field id="weight" value={dForm.weight} placeholder='Weight in Grams' control='input'  onChange={handleChange} />
           <Form.Field id="img" value={dForm.img} placeholder='Image URL (Optional)' control='input'  onChange={handleChange} />
-          </Form.Group>
-          <input type="submit" />
+        </Form.Group>
+        <input type="submit" />
       </Form>
     </div>
   )
