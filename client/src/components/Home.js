@@ -19,7 +19,8 @@ const Home = () => {
     return (
       <Container className="home">
         <h3>Welcome to Tossed & Found, your new disc golfing companion!<br/>
-        Please log in or sign up to get started.</h3>
+        Log in or sign up to get started!</h3>
+        <span className="subtle">To demo, proceed to the login page!</span>
         <br/>
         <Image circular centered size="large" src={randomImg} alt="Tossed and Found" />
       </Container>
