@@ -38,7 +38,7 @@
 }
 
 .greeting {
-  display:block;
+  display: block;
   position: absolute;
   left: 0%;
   top: 0%;
@@ -60,7 +60,8 @@
   overflow-wrap: normal;
 }
 
-button, input[type=submit] {
+button,
+input[type=submit] {
   border: 0px;
   border-radius: 20px;
   background-color: rgb(255, 140, 0);
@@ -71,14 +72,17 @@ button, input[type=submit] {
 }
 
 @media(hover: hover) {
-  .navTab:hover, .logout:hover {
+
+  .navTab:hover,
+  .logout:hover {
     background: rgb(210, 209, 208);
     color: rgb(255, 140, 0);
     cursor: pointer;
     border-radius: 50%;
   }
-  
-  button:hover, input[type=submit]:hover {
+
+  button:hover,
+  input[type=submit]:hover {
     background: rgb(210, 209, 208);
     color: rgb(255, 140, 0);
     cursor: pointer;
@@ -89,7 +93,8 @@ button, input[type=submit] {
   }
 }
 
-input[type=text], textarea {
+input[type=text],
+textarea {
   border-radius: 5px;
   width: 50%;
 }
@@ -191,11 +196,12 @@ ul {
 }
 
 @media (max-width: 550px) {
-  .App { 
-    font-size: .75em; 
+  .App {
+    font-size: .75em;
   }
 
-  input[type=text], textarea {
+  input[type=text],
+  textarea {
     width: 75%;
   }
 
@@ -211,11 +217,12 @@ ul {
     margin-right: 10%;
   }
 
-  #courseGrid, #formGrid {
+  #courseGrid,
+  #formGrid {
     margin-left: 5%;
     margin-right: 5%;
   }
-  
+
   .navTab {
     width: 14%;
     margin: .25em;
@@ -234,6 +241,3 @@ ul {
     font-size: 2.5em;
   }
 }
-
-
-

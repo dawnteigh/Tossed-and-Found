@@ -2,7 +2,7 @@ import '../css/App.css'
 import React, { useContext } from 'react'
 import { Switch, Route } from "react-router-dom"
 import { Button, Header, Icon, Modal } from 'semantic-ui-react'
-import TossedAndFound from "../TossedAndFound.png"
+import TossedAndFound from "../assets/tossed.png"
 import Signup from './Signup'
 import Login from './Login'
 import Home from './Home'
@@ -13,7 +13,7 @@ import Courses from './Courses'
 import { UserContext } from '../context/user'
 
 function App() {
-  
+
   const { open, setOpen, errorMessages } = useContext(UserContext)
 
   const displayErrors = errorMessages.map((e, i) => {
@@ -49,12 +49,12 @@ function App() {
       <img src={TossedAndFound} alt="Tossed and Found" className="logo" />
       <NavBar />
       <Switch>
-        <Route exact path="/signup" render={ (props) => <Signup { ...props } />} />
-        <Route exact path="/login" render={ (props) =>  <Login { ...props } />} />
-        <Route exact path="/discs" render={ (props) => <Discs { ...props }/>} />
-        <Route exact path="/scorecard" render={ (props) => <ScoreCard { ...props }/>} />
-        <Route exact path="/courses" render={ (props) => <Courses { ...props }/>} />
-        <Route exact path="/*" render={ (props) => <Home { ...props }/>} />
+        <Route exact path="/signup" render={(props) => <Signup {...props} />} />
+        <Route exact path="/login" render={(props) => <Login {...props} />} />
+        <Route exact path="/discs" render={(props) => <Discs {...props} />} />
+        <Route exact path="/scorecard" render={(props) => <ScoreCard {...props} />} />
+        <Route exact path="/courses" render={(props) => <Courses {...props} />} />
+        <Route exact path="/*" render={(props) => <Home {...props} />} />
       </Switch>
     </div>
   );
