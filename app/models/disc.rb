@@ -9,7 +9,7 @@ class Disc < ApplicationRecord
   private
   
   def default_img
-    self.img = "https://www.discstore.com/media/catalog/product/cache/b56d745e38c1403eb862ceecfcf7dbaf/d/i/discgolf_mystery.jpg" if self.img.blank?
+    self.img = "/TandFicon.png" if self.img.blank?
   end
 
 end
