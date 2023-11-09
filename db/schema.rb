@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 2023_11_08_143510) do
     t.string "color"
     t.integer "weight"
     t.string "disc_type"
-    t.string "img", default: "https://www.discstore.com/media/catalog/product/cache/b56d745e38c1403eb862ceecfcf7dbaf/d/i/discgolf_mystery.jpg"
+    t.string "img", default: "/TandFicon.png"
     t.string "finder_key"
     t.boolean "lost", default: false
     t.bigint "user_id", null: false
