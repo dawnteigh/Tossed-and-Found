@@ -4,12 +4,10 @@ class Disc < ApplicationRecord
   validates_inclusion_of :disc_type, in: ["Distance Driver", "Fairway Driver", "Control Driver", "Midrange", "Putter"]
   validates :weight, numericality: true, length: { maximum: 3 }
 
-  before_save :default_img
+  has_one_attached :image
 
-  private
-  
-  def default_img
-    self.img = "/TandFicon.png" if self.img.blank?
+  def img_url
+    Rails.application.routes.url_helpers.rails_blob_path(image, only_path: true) if image.attached?
   end
 
 end
