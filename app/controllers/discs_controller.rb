@@ -51,7 +51,7 @@ class DiscsController < ApplicationController
   private
   
   def disc_params
-    params.permit(:make, :model, :color, :weight, :disc_type, :img, :lost)
+    params.require(:disc).permit(:make, :model, :color, :weight, :disc_type, :img, :lost, :image)
   end
 
 end
