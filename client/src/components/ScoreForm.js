@@ -31,7 +31,7 @@ const ScoreForm = ({ hole, tally, count, setCount }) => {
       setIcon({
         img: 'check circle outline',
         color: 'green'
-      }) 
+      })
       setCount(count + 1)
     }
     else if (e.target.id === 'undo') {
@@ -53,31 +53,32 @@ const ScoreForm = ({ hole, tally, count, setCount }) => {
         <Card.Description>
           <form>
             <input
-            type="number"
-            id="par"
-            style={{ width: "75%" }}
-            value={score.par}
-            placeholder="Par"
-            onChange={handleChange}
+              type="number"
+              id="par"
+              style={{ width: "75%" }}
+              value={score.par}
+              placeholder="Par"
+              onChange={handleChange}
             />
-          <br/>
+            <br />
             <input
-            type="number"
-            id="strokes"
-            style={{ width: "75%" }}
-            value={score.strokes}
-            placeholder="Strokes"
-            onChange={handleChange}
+              type="number"
+              id="strokes"
+              style={{ width: "75%" }}
+              value={score.strokes}
+              placeholder="Strokes"
+              onChange={handleChange}
             />
           </form>
         </Card.Description>
       </Card.Content>
       <Card.Content extra>
         <div className='ui two buttons'>
-          <Button icon id='record' compact color='green' onClick={handleClick} disabled={ icon.color === 'green' ? true : false } >
+          {/* TODO: Only the edges of the buttons are clickable, presumably because of icons */}
+          <Button icon id='record' compact color='green' onClick={handleClick} disabled={icon.color === 'green' ? true : false} >
             <Icon name='plus' />
           </Button>
-          <Button icon id='undo' compact color='red' onClick={handleClick} disabled={ icon.color === 'red' ? true : false } >
+          <Button icon id='undo' compact color='red' onClick={handleClick} disabled={icon.color === 'red' ? true : false} >
             <Icon name='minus' />
           </Button>
         </div>
