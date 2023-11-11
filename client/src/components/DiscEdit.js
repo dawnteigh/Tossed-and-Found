@@ -81,7 +81,7 @@ const DiscEdit = ({ handleUpdateDisc, disc, setEditing }) => {
             <option value="Putter">Putter</option>
           </Form.Field>
           <Form.Field id="weight" value={form.weight} placeholder='Weight in Grams' control='input' onChange={handleChange} />
-          <input type="file" name="image" id="image" aria-label="image" />
+          <input type="file" accept="image/png, image/jpeg, image/jpg" name="image" id="image" aria-label="image" />
         </Form.Group>
         <input type="submit" />
       </Form>
