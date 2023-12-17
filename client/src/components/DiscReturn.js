@@ -45,7 +45,7 @@ const DiscReturn = ({ setActiveIndex, msgForm, setMsgForm }) => {
           type="text"
           size="36"
           value={search}
-          placeholder="Type in the 6 character ID written on the disc"
+          placeholder="Type in the 8 character ID written on the disc"
           onChange={(e) => setSearch(e.target.value)}
         />
         <br />
