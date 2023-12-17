@@ -76,10 +76,10 @@ const ScoreForm = ({ hole, tally, count, setCount }) => {
         <div className='ui two buttons'>
           {/* TODO: Only the edges of the buttons are clickable, presumably because of icons */}
           <Button icon id='record' compact color='green' onClick={handleClick} disabled={icon.color === 'green' ? true : false} >
-            <Icon name='plus' />
+            <Icon id='record' name='plus' />
           </Button>
           <Button icon id='undo' compact color='red' onClick={handleClick} disabled={icon.color === 'red' ? true : false} >
-            <Icon name='minus' />
+            <Icon id='undo' name='minus' />
           </Button>
         </div>
       </Card.Content>
