@@ -47,7 +47,7 @@ const Courses = () => {
   return (
     <div>
       <h4>Click 'Play' on a course to start scorekeeping a new round there!</h4>
-      <Card.Group itemsPerRow={1} id="courseGrid">
+      <Card.Group itemsPerRow={1} id="course-grid">
         {displayCourses}
       </Card.Group>
       <br />
