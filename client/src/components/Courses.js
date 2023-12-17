@@ -14,14 +14,15 @@ const Courses = () => {
 
   useEffect(() => {
     fetch('/api/courses')
-    .then(r => r.json())
-    .then(data => {
-      if (data.error) {
-        setErrorMessages(data.error)
-        setOpen(true)
-    } else {
-      setCourses(data)
-    }})
+      .then(r => r.json())
+      .then(data => {
+        if (data.error) {
+          setErrorMessages(data.error)
+          setOpen(true)
+        } else {
+          setCourses(data)
+        }
+      })
   }, [])
 
   const displayCourses = courses.map(c => {
@@ -49,11 +50,11 @@ const Courses = () => {
       <Card.Group itemsPerRow={1} id="courseGrid">
         {displayCourses}
       </Card.Group>
-      <br/>
+      <br />
       {editMode ?
-       <CourseEditForm handleUpdateCourse={ handleUpdateCourse } setEditMode={ setEditMode } />  :
-       <CourseForm handleAddCourse={ handleAddCourse } /> 
-      } 
+        <CourseEditForm handleUpdateCourse={handleUpdateCourse} setEditMode={setEditMode} /> :
+        <CourseForm handleAddCourse={handleAddCourse} />
+      }
     </div>
   )
 }

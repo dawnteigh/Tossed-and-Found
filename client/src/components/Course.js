@@ -29,7 +29,7 @@ const Course = ({ course, setEditMode, edit }) => {
     const modifiedScore = (s) => {
       if (s === 0) {
         return `±${s}`
-      } 
+      }
       else if (s > 0) {
         return `+${s}`
       } else {
@@ -50,12 +50,12 @@ const Course = ({ course, setEditMode, edit }) => {
       <Card.Content>
         <Card.Header>{name}</Card.Header>
         <Card.Meta>
-          {location} | {holes} holes<br/>
+          {location} | {holes} holes<br />
           <button onClick={handleClick}>Play</button>
           <button onClick={handleEditMode}>{edit === id ? "Cancel" : "Edit"}</button>
         </Card.Meta>
         <Card.Description>
-          <b>Top 3 Scores</b><br/>
+          <b>Top 3 Scores</b><br />
           <Table singleLine unstackable>
             <Table.Header>
               <Table.Row>

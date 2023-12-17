@@ -11,33 +11,33 @@ const Messages = ({ msgForm, setMsgForm }) => {
   const filteredMessages = user.messages.filter(m => (m.subject + " " + m.body + " " + m.to + " " + m.from).toLowerCase().includes(filter.toLowerCase()))
   const displayMessages = filteredMessages.map(m => {
     return (
-    <Comment
-      key={m.id}
-      className="message"
-      style={ m.from === user.username ? { background: "rgba(255, 140, 0, 0.325)" } : null }
-    >
-      <Comment.Content>
-        <Comment.Author as="a">{m.from === user.username ? "me" : m.from}</Comment.Author>
-        <Comment.Metadata>
-          <div>to: { m.to === user.username ? "me" : m.to } | {Moment(m.created_at).format('MMMM DD,  LT') }</div>
-        </Comment.Metadata>
-        <Divider fitted />
-        <Comment.Text>
-          <b>{m.subject}</b><br/>
-          {m.body}  
-        </Comment.Text>
-        <Comment.Actions>
-        {m.from === user.username ? null :
-          <Comment.Action onClick={() =>
-            setMsgForm({
-              ...msgForm,
-              subject: m.subject,
-              to: m.from
-              })
-            } >Reply</Comment.Action>}
-        </Comment.Actions>
-      </Comment.Content>
-    </Comment>
+      <Comment
+        key={m.id}
+        className="message"
+        style={m.from === user.username ? { background: "rgba(255, 140, 0, 0.325)" } : null}
+      >
+        <Comment.Content>
+          <Comment.Author as="a">{m.from === user.username ? "me" : m.from}</Comment.Author>
+          <Comment.Metadata>
+            <div>to: {m.to === user.username ? "me" : m.to} | {Moment(m.created_at).format('MMMM DD,  LT')}</div>
+          </Comment.Metadata>
+          <Divider fitted />
+          <Comment.Text>
+            <b>{m.subject}</b><br />
+            {m.body}
+          </Comment.Text>
+          <Comment.Actions>
+            {m.from === user.username ? null :
+              <Comment.Action onClick={() =>
+                setMsgForm({
+                  ...msgForm,
+                  subject: m.subject,
+                  to: m.from
+                })
+              } >Reply</Comment.Action>}
+          </Comment.Actions>
+        </Comment.Content>
+      </Comment>
     )
   })
 
@@ -60,7 +60,7 @@ const Messages = ({ msgForm, setMsgForm }) => {
       <Comment.Group>
         {displayMessages}
       </Comment.Group>
-      <br/>
+      <br />
       <MessageForm handleAddMessage={handleAddMessage} msgForm={msgForm} setMsgForm={setMsgForm} />
     </Container>
   )

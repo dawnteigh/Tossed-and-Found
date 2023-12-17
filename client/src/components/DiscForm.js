@@ -61,7 +61,7 @@ const DiscForm = ({ handleAddDisc }) => {
   }
 
   return (
-    <div id="discForm">
+    <div id="disc-form">
       Add new disc:
       <br />
       <Form onSubmit={handleSubmit}>

@@ -20,18 +20,18 @@ function UserProvider({ children }) {
 
   useEffect(() => {
     fetch("/api/me")
-    .then(r => r.json())
-    .then(data => {
-      if (data.error) {
-      setLoggedIn(false)
-      history.push("/")
-      }
-      else {
+      .then(r => r.json())
+      .then(data => {
+        if (data.error) {
+          setLoggedIn(false)
+          history.push("/")
+        }
+        else {
           setUser(data)
           setLoggedIn(true)
           setGreeting(randomGreeting)
-      }
-    })
+        }
+      })
   }, [])
 
   const login = (user) => {
@@ -45,35 +45,35 @@ function UserProvider({ children }) {
     fetch('/api/logout', {
       method: "DELETE"
     })
-    .then(() => {
-      setLoggedIn(false)
-      history.push('/login')
-      setSelectedCourse(false)
-      setUser(null)
-    })
+      .then(() => {
+        setLoggedIn(false)
+        history.push('/login')
+        setSelectedCourse(false)
+        setUser(null)
+      })
   }
 
   return (
-  <UserContext.Provider
-  value={{ 
-    user,
-    setUser,
-    loggedIn,
-    setLoggedIn,
-    open,
-    setOpen,
-    errorMessages,
-    setErrorMessages,
-    selectedCourse,
-    setSelectedCourse,
-    login,
-    logout,
-    history,
-    randomImg,
-    greeting
-    }}>
-    {children}
-  </UserContext.Provider>
+    <UserContext.Provider
+      value={{
+        user,
+        setUser,
+        loggedIn,
+        setLoggedIn,
+        open,
+        setOpen,
+        errorMessages,
+        setErrorMessages,
+        selectedCourse,
+        setSelectedCourse,
+        login,
+        logout,
+        history,
+        randomImg,
+        greeting
+      }}>
+      {children}
+    </UserContext.Provider>
   )
 }
 

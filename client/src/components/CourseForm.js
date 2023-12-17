@@ -20,7 +20,7 @@ const CourseForm = ({ handleAddCourse }) => {
       [key]: value
     })
   }
-  
+
   const handleSubmit = (e) => {
     e.preventDefault()
     fetch('/api/courses', {
@@ -34,26 +34,26 @@ const CourseForm = ({ handleAddCourse }) => {
         holes: cForm.holes
       })
     })
-    .then(r => r.json())
-    .then(c => {
-      if (c.error) {
+      .then(r => r.json())
+      .then(c => {
+        if (c.error) {
           setErrorMessages(c.error)
           setOpen(true)
-      } else { 
-      handleAddCourse(c)
-      setCForm({
-        name: "",
-        location: "",
-        holes: ""
+        } else {
+          handleAddCourse(c)
+          setCForm({
+            name: "",
+            location: "",
+            holes: ""
+          })
+        }
       })
-    }
-  })
   }
 
   return (
     <div>
       Add new course:
-      <br/>
+      <br />
       <form onSubmit={handleSubmit}>
         <Input
           type="text"
@@ -63,14 +63,14 @@ const CourseForm = ({ handleAddCourse }) => {
           placeholder="Name of Course"
           onChange={handleChange}
         />
-          <Input
-            type="number"
-            id="holes"
-            label="Holes"
-            value={cForm.holes}
-            placeholder="Number of Holes"
-            onChange={handleChange}
-          />
+        <Input
+          type="number"
+          id="holes"
+          label="Holes"
+          value={cForm.holes}
+          placeholder="Number of Holes"
+          onChange={handleChange}
+        />
         <Input
           type="text"
           id="location"
@@ -79,7 +79,7 @@ const CourseForm = ({ handleAddCourse }) => {
           placeholder="Location of Course"
           onChange={handleChange}
         />
-        <br/>
+        <br />
         <input type="submit" />
       </form>
     </div>

@@ -13,16 +13,16 @@ const Discs = () => {
   if (!user) {
     return (
       <h1>Loading...</h1>
-      )
+    )
   }
 
   const handleAddDisc = (d) => {
     setUser({
       ...user,
-      discs: [...user.discs, d ]     
+      discs: [...user.discs, d]
     })
   }
-  
+
   const handleRemoveDisc = (id) => {
     const updatedDiscs = user.discs.filter(d => d.id !== id)
     setUser({
@@ -44,23 +44,23 @@ const Discs = () => {
       discs: updatedDiscs
     })
   }
-  
-  const displayDiscs = user.discs.map(d => <Disc key={d.id} disc={d} handleRemoveDisc={handleRemoveDisc} handleUpdateDisc={handleUpdateDisc} editing={editing} setEditing={setEditing} /> )
-  
+
+  const displayDiscs = user.discs.map(d => <Disc key={d.id} disc={d} handleRemoveDisc={handleRemoveDisc} handleUpdateDisc={handleUpdateDisc} editing={editing} setEditing={setEditing} />)
+
   return (
     <>
       <h2>Your Discography</h2>
       {user.discs.length === 0 ?
-        "You haven't added any discs yet!" : 
-        <Card.Group stackable itemsPerRow={3} id="discGrid">
+        "You haven't added any discs yet!" :
+        <Card.Group stackable itemsPerRow={3} id="disc-grid">
           {displayDiscs}
         </Card.Group>
       }
       <Divider />
       <div>
-        {editing ? 
-        <DiscEdit handleUpdateDisc={handleUpdateDisc} disc={editing} setEditing={setEditing} /> :
-        <DiscForm handleAddDisc={ handleAddDisc } />
+        {editing ?
+          <DiscEdit handleUpdateDisc={handleUpdateDisc} disc={editing} setEditing={setEditing} /> :
+          <DiscForm handleAddDisc={handleAddDisc} />
         }
       </div>
     </>

@@ -11,23 +11,23 @@ const MyCourses = () => {
       setSelectedCourse(c)
       history.push('/scorecard')
     }
-    
+
     const modifiedScore = (s) => {
       if (s === 0) {
-      return `±${s}`
-      } 
-        else if (s > 0) {
-          return `+${s}`
-        } else {
-          return s
-        }
+        return `±${s}`
+      }
+      else if (s > 0) {
+        return `+${s}`
+      } else {
+        return s
+      }
     }
 
     return (
-      <Segment key={i} onClick={handleClick} className="myCourse" raised>
+      <Segment key={i} onClick={handleClick} className="my-course" raised>
         <b>{c.name}</b> in {c.location}
-        <br/>
-        <i>Personal Best</i>: {modifiedScore(c.best)}  
+        <br />
+        <i>Personal Best</i>: {modifiedScore(c.best)}
       </Segment>
     )
   })
@@ -36,7 +36,7 @@ const MyCourses = () => {
     <div>
       <h4>
         A list of the courses you have played at.
-        <br/>
+        <br />
         Click on one to start scorekeeping a new round!
       </h4>
       {user.courses.length === 0 ? "... unless of course you haven't recorded any scores with us yet. Click the courses tab to get started!" : displayCourses}

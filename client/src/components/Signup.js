@@ -20,7 +20,7 @@ const Signup = () => {
       [key]: value
     })
   }
-  
+
   const handleSubmit = (e) => {
     e.preventDefault()
     fetch('/api/signup', {
@@ -34,45 +34,45 @@ const Signup = () => {
         password_confirmation: signup.password_confirmation
       })
     })
-    .then(r => r.json())
-    .then(user => {
-      if (user.error) {
-        setErrorMessages(user.error)
-        setOpen(true)
-      } else {
+      .then(r => r.json())
+      .then(user => {
+        if (user.error) {
+          setErrorMessages(user.error)
+          setOpen(true)
+        } else {
           login(user)
         }
-    })
+      })
   }
 
   return (
-    <div className="userForm">
+    <div className="user-form">
       <Form onSubmit={handleSubmit}>
-      <Form.Input
-        type="text"
-        label="Username" 
-        placeholder="Username"
-        id="username"
-        value={signup.username}
-        onChange={handleChange}
+        <Form.Input
+          type="text"
+          label="Username"
+          placeholder="Username"
+          id="username"
+          value={signup.username}
+          onChange={handleChange}
         />
-      <Form.Input
-        type="password"
-        label="Password" 
-        placeholder="Password"
-        id="password"
-        value={signup.password}
-        onChange={handleChange}
-      />
-      <Form.Input
-        type="password"
-        label="Confirm Password" 
-        placeholder="Confirm Password"
-        id="password_confirmation"
-        value={signup.password_confirmation}
-        onChange={handleChange}
-      />
-      <Form.Button>Submit</Form.Button>
+        <Form.Input
+          type="password"
+          label="Password"
+          placeholder="Password"
+          id="password"
+          value={signup.password}
+          onChange={handleChange}
+        />
+        <Form.Input
+          type="password"
+          label="Confirm Password"
+          placeholder="Confirm Password"
+          id="password_confirmation"
+          value={signup.password_confirmation}
+          onChange={handleChange}
+        />
+        <Form.Button>Submit</Form.Button>
       </Form>
     </div>
   )

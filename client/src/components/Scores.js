@@ -23,14 +23,14 @@ const Scores = () => {
     const modifiedScore = (s) => {
       if (s === 0) {
         return `±${s}`
-      } 
+      }
       else if (s > 0) {
         return `+${s}`
       } else {
         return s
       }
     }
-    
+
     return (
       <Item key={s.id}>
         <Item.Image size='mini' floated='right'><span className="score">{modifiedScore(score)}</span></Item.Image>
@@ -38,12 +38,12 @@ const Scores = () => {
           <Item.Header>{s.course.name}</Item.Header>
           <Item.Meta>{Moment(s.created_at).format('MMMM DD,  LT')}</Item.Meta>
           <Item.Description>
-            Par: {s.par}<br/>
+            Par: {s.par}<br />
             Your Strokes: {s.strokes}
           </Item.Description>
           <Item.Extra><button id={s.id} className='delete' onClick={handleDelete} >Delete</button></Item.Extra>
         </Item.Content>
-      </Item>   
+      </Item>
     )
   })
 

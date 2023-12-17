@@ -9,9 +9,9 @@ import App from './components/App';
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-    <UserProvider>
-      <App />
-    </UserProvider>
+      <UserProvider>
+        <App />
+      </UserProvider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')

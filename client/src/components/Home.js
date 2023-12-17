@@ -18,10 +18,10 @@ const Home = () => {
   if (!loggedIn) {
     return (
       <Container className="home">
-        <h3>Welcome to Tossed & Found, your new disc golfing companion!<br/>
-        Log in or sign up to get started!</h3>
+        <h3>Welcome to Tossed & Found, your new disc golfing companion!<br />
+          Log in or sign up to get started!</h3>
         <span className="subtle">To demo, proceed to the login page!</span>
-        <br/>
+        <br />
         <Image circular centered size="large" src={randomImg} alt="Tossed and Found" />
       </Container>
     )
@@ -37,9 +37,9 @@ const Home = () => {
 
   return (
     <Grid centered>
-      <br/>
+      <br />
       <div className="home">
-        <br/>
+        <br />
         <Accordion styled >
           <Accordion.Title
             active={activeIndex === "0"}

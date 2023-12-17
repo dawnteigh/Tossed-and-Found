@@ -21,7 +21,7 @@ const CourseEditForm = ({ handleUpdateCourse, setEditMode }) => {
       [key]: value
     })
   }
-  
+
   const handleSubmit = (e) => {
     e.preventDefault()
     fetch(`/api/courses/${id}`, {
@@ -35,27 +35,27 @@ const CourseEditForm = ({ handleUpdateCourse, setEditMode }) => {
         holes: cForm.holes
       })
     })
-    .then(r => r.json())
-    .then(c => {
-      if (c.error) {
+      .then(r => r.json())
+      .then(c => {
+        if (c.error) {
           setErrorMessages(c.error)
           setOpen(true)
-      } else { 
-      handleUpdateCourse(c)
-      setCForm({
-        name: "",
-        location: "",
-        holes: ""
+        } else {
+          handleUpdateCourse(c)
+          setCForm({
+            name: "",
+            location: "",
+            holes: ""
+          })
+          setEditMode(false)
+        }
       })
-      setEditMode(false)
-    }
-  })
   }
 
   return (
     <div>
       Now editing <b>{name}</b>...
-      <br/>
+      <br />
       <form onSubmit={handleSubmit}>
         <Input
           type="text"
@@ -65,14 +65,14 @@ const CourseEditForm = ({ handleUpdateCourse, setEditMode }) => {
           placeholder="Name of Course"
           onChange={handleChange}
         />
-          <Input
-            type="number"
-            id="holes"
-            label="Holes"
-            value={cForm.holes}
-            placeholder="Number of Holes"
-            onChange={handleChange}
-          />
+        <Input
+          type="number"
+          id="holes"
+          label="Holes"
+          value={cForm.holes}
+          placeholder="Number of Holes"
+          onChange={handleChange}
+        />
         <Input
           type="text"
           id="location"
@@ -81,7 +81,7 @@ const CourseEditForm = ({ handleUpdateCourse, setEditMode }) => {
           placeholder="Location of Course"
           onChange={handleChange}
         />
-        <br/>
+        <br />
         <input type="submit" />
       </form>
     </div>

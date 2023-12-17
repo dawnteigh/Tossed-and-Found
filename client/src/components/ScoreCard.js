@@ -11,12 +11,12 @@ const ScoreCard = () => {
   const [par, setPar] = useState(0)
   const [strokes, setStrokes] = useState(0)
   const [holeCount, setHoleCount] = useState(0)
-  
+
   useEffect(() => {
     if (!selectedCourse) {
       history.push('/courses')
     } else {
-      setHolesArray(Array.from({length: holes}, (_, i) => i + 1))
+      setHolesArray(Array.from({ length: holes }, (_, i) => i + 1))
     }
   }, [])
 
@@ -25,16 +25,16 @@ const ScoreCard = () => {
       setPar(par + p)
       setStrokes(strokes + s)
     } else {
-        setErrorMessages(["Par must be an integer", "Strokes must be an integer"])
-        setOpen(true)
-      }
+      setErrorMessages(["Par must be an integer", "Strokes must be an integer"])
+      setOpen(true)
+    }
   }
 
   const handleAddScore = (s) => {
     setUser({
       ...user,
       scores: [...user.scores, s],
-      courses: [...user.courses, s.course]  
+      courses: [...user.courses, s.course]
     })
   }
 
@@ -58,29 +58,29 @@ const ScoreCard = () => {
           player: user.username
         })
       })
-      .then(r => r.json())
-      .then(score => {
-        if (score.error) {
-          setErrorMessages(score.error)
-          setOpen(true)
-        } else {
+        .then(r => r.json())
+        .then(score => {
+          if (score.error) {
+            setErrorMessages(score.error)
+            setOpen(true)
+          } else {
             handleAddScore(score)
             history.push('/')
           }
-      })
+        })
     }
   }
 
   return (
     <div>
-      <h3>Currently playing at: {name}</h3><br/>
-      Enter the par and your number of strokes for each hole. Use the +/- buttons to add or remove the numbers from your total!<br/>
+      <h3>Currently playing at: {name}</h3><br />
+      Enter the par and your number of strokes for each hole. Use the +/- buttons to add or remove the numbers from your total!<br />
       <b>Par:</b> {par} <b>Strokes:</b> {strokes}
-      <br/><br/>
-      <Card.Group id="formGrid" itemsPerRow={3} >
+      <br /><br />
+      <Card.Group id="form-grid" itemsPerRow={3} >
         {scoreForms}
       </Card.Group>
-        <br/>
+      <br />
       <form onSubmit={handleSubmit}>
         <input type="submit" value="Finished!" />
       </form>

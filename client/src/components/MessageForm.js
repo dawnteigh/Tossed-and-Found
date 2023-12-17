@@ -15,7 +15,7 @@ const MessageForm = ({ handleAddMessage, msgForm, setMsgForm }) => {
       [key]: value
     })
   }
-  
+
   const handleSubmit = (e) => {
     e.preventDefault()
     fetch('/api/messages', {
@@ -29,12 +29,12 @@ const MessageForm = ({ handleAddMessage, msgForm, setMsgForm }) => {
         body: msgForm.body
       })
     })
-    .then(r => r.json())
-    .then(msg => {
-      if (msg.error) {
-        setErrorMessages(msg.error)
-        setOpen(true)
-      } else {
+      .then(r => r.json())
+      .then(msg => {
+        if (msg.error) {
+          setErrorMessages(msg.error)
+          setOpen(true)
+        } else {
           handleAddMessage(msg)
           setMsgForm({
             subject: "",
@@ -42,36 +42,36 @@ const MessageForm = ({ handleAddMessage, msgForm, setMsgForm }) => {
             body: ""
           })
         }
-    })
+      })
   }
 
   return (
     <form onSubmit={handleSubmit}>
       <Form.Group widths="equal">
-      <input
-        type="text"
-        id="subject"
-        placeholder="Subject"
-        value={msgForm.subject}
-        onChange={handleChange}
-      />
-      <br/>
-      <input
-        type="text"
-        id="to"
-        placeholder='To:'
-        value={msgForm.to}
-        onChange={handleChange}
-      />
-      <br/>
-      <TextareaAutosize
-        id="body"
-        placeholder='Type your message here'
-        minRows={3}
-        value={msgForm.body}
-        onChange={handleChange}
-      />
-      <br/>
+        <input
+          type="text"
+          id="subject"
+          placeholder="Subject"
+          value={msgForm.subject}
+          onChange={handleChange}
+        />
+        <br />
+        <input
+          type="text"
+          id="to"
+          placeholder='To:'
+          value={msgForm.to}
+          onChange={handleChange}
+        />
+        <br />
+        <TextareaAutosize
+          id="body"
+          placeholder='Type your message here'
+          minRows={3}
+          value={msgForm.body}
+          onChange={handleChange}
+        />
+        <br />
       </Form.Group>
       <input type="submit" />
     </form>

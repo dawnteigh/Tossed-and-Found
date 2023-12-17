@@ -62,7 +62,7 @@ const DiscEdit = ({ handleUpdateDisc, disc, setEditing }) => {
   }
 
   return (
-    <div id="discForm">
+    <div id="disc-form">
       Currently editing: <b>{disc.color} {disc.model}</b>
       <br />
       <Form onSubmit={handleSubmit}>
